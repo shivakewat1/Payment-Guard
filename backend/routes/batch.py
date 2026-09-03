@@ -1,0 +1,97 @@
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+from datetime import datetime
+from backend.database.db import get_db
+from backend.database.models import Failure, Diagnosis, Intervention, AuditLog
+from backend.models.schemas import BatchRunRequest, BatchRunResponse
+from backend.agents.detector import FailureDetector
+from backend.agents.diagnosis import DiagnosisAgent
+from backend.agents.intervention import InterventionEngine
+from backend.agents.executor import RecoveryExecutor
+from backend.utils.logger import logger
+
+router = APIRouter(prefix="/api", tags=["Batch Execution Pipeline"])
+
+detector = FailureDetector()
+diagnostician = DiagnosisAgent()
+decider = InterventionEngine()
+executor = RecoveryExecutor()
+
+@router.post("/batch-run", response_model=BatchRunResponse)
+def run_batch_pipeline(
+    request: BatchRunRequest,
+    db: Session = Depends(get_db)
+):
+    """
+    Executes the entire end-to-end 4-step workflow on all detected failures:
+    DETECT -> DIAGNOSE -> INTERVENE -> EXECUTE & AUDIT.
+    Perfect for 1-click end-to-end demo and video presentation.
+    """
+    batch_id = f"batch_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}"
+    logger.info(f"Starting batch recovery pipeline: {batch_id}")
+
+    # 1. Detect and ensure transactions are synced
+    detection_res = detector.sync_and_detect(db=db, merchant_id=request.merchant_id or "all")
+    failures = db.query(Failure).all()
+    if request.limit:
+        failures = failures[:request.limit]
+
+    processed_count = 0
+    recovered_count = 0
+    recovered_amount = 0.0
+
+    for f in failures:
+        try:
+            # 2. Diagnose
+            diag = diagnostician.diagnose(db, f.tx_id)
+
+            # 3. Intervene
+            interv = decider.decide_intervention(db, f.tx_id)
+
+            # 4. Execute
+            exec_res = executor.execute_intervention(db, interv["intervention_id"])
+
+            processed_count += 1
+            if exec_res.get("status") == "success":
+                recovered_count += 1
+                recovered_amount += exec_res.get("money_recovered", 0.0)
+
+        except Exception as err:
+            logger.error(f"Error processing transaction {f.tx_id} in batch: {err}")
+
+    recovery_rate = round((recovered_count / processed_count * 100.0), 1) if processed_count > 0 else 0.0
+
+    logger.info(f"Batch {batch_id} finished. Processed: {processed_count}, Recovered: {recovered_count} (Rs. {recovered_amount:,.2f}, {recovery_rate}%)")
+
+    return BatchRunResponse(
+        batch_id=batch_id,
+        processed_count=processed_count,
+        recovered_count=recovered_count,
+        recovered_amount=recovered_amount,
+        recovery_rate_percent=recovery_rate,
+        audit_logs_created=processed_count,
+        message=f"Batch workflow executed successfully. Recovered Rs. {recovered_amount:,.2f} ({recovery_rate}% recovery rate)."
+    )
+
+@router.post("/reset")
+def reset_demo_data(db: Session = Depends(get_db)):
+    """
+    Resets all diagnoses, interventions, and audit logs, returning failures
+    to their initial 'detected' status. Essential for clean re-runs during demos.
+    """
+    try:
+        db.query(AuditLog).delete()
+        db.query(Intervention).delete()
+        db.query(Diagnosis).delete()
+        
+        # Reset failures status
+        failures = db.query(Failure).all()
+        for f in failures:
+            f.status = "detected"
+        db.commit()
+        InterventionEngine.reset_circuit()
+        logger.info("Demo state successfully reset to initial baseline.")
+        return {"status": "success", "message": "Demo database successfully reset."}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))

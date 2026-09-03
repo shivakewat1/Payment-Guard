@@ -1,0 +1,2811 @@
+{
+  "dataset_info": {
+    "version": "1.0",
+    "generated_at": "2026-09-03T04:09:57.547607Z",
+    "total_transactions": 100,
+    "total_amount_at_risk": 2572335,
+    "currency": "INR"
+  },
+  "transactions": [
+    {
+      "tx_id": "tx_1001",
+      "amount": 5500,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Bank gateway did not respond within 30000ms",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_39256",
+        "name": "Aaryav Nair",
+        "email": "aaryav.nair27@gmail.com",
+        "phone": "+917440213415",
+        "trust_score": 65,
+        "success_rate": 87.4,
+        "past_payments_count": 5
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-20T18:05:00Z",
+      "payment_method": "card_hdfc",
+      "attempts": 1,
+      "is_test_special": true
+    },
+    {
+      "tx_id": "tx_1002",
+      "amount": 31000,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_36062",
+        "name": "Vivaan Banerjee",
+        "email": "vivaan.banerjee93@gmail.com",
+        "phone": "+919340505846",
+        "trust_score": 86,
+        "success_rate": 79.6,
+        "past_payments_count": 40
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-23T10:51:00Z",
+      "payment_method": "upi",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1003",
+      "amount": 38500,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_30379",
+        "name": "Diya Iyer",
+        "email": "diya.iyer37@gmail.com",
+        "phone": "+918445662585",
+        "trust_score": 66,
+        "success_rate": 76.9,
+        "past_payments_count": 9
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-24T06:54:00Z",
+      "payment_method": "card_sbi",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1004",
+      "amount": 45000,
+      "currency": "INR",
+      "reason": "bank_timeout",
+      "reason_description": "HDFC/SBI switch unreachable temporarily",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_26361",
+        "name": "Anushka Banerjee",
+        "email": "anushka.banerjee58@gmail.com",
+        "phone": "+917338444264",
+        "trust_score": 78,
+        "success_rate": 92.4,
+        "past_payments_count": 42
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-24T07:36:00Z",
+      "payment_method": "card_hdfc",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1005",
+      "amount": 5500,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Bank gateway did not respond within 30000ms",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_20458",
+        "name": "Advik Rao",
+        "email": "advik.rao39@gmail.com",
+        "phone": "+917433797840",
+        "trust_score": 84,
+        "success_rate": 80.8,
+        "past_payments_count": 43
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-24T08:10:00Z",
+      "payment_method": "card_sbi",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1006",
+      "amount": 8500,
+      "currency": "INR",
+      "reason": "bank_timeout",
+      "reason_description": "HDFC/SBI switch unreachable temporarily",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_89840",
+        "name": "Aaryav Gupta",
+        "email": "aaryav.gupta91@gmail.com",
+        "phone": "+917735034881",
+        "trust_score": 75,
+        "success_rate": 78.4,
+        "past_payments_count": 27
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-23T08:59:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1007",
+      "amount": 38500,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_14207",
+        "name": "Vihaan Nair",
+        "email": "vihaan.nair50@gmail.com",
+        "phone": "+918722989659",
+        "trust_score": 77,
+        "success_rate": 76.4,
+        "past_payments_count": 39
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-23T19:13:00Z",
+      "payment_method": "card_icici",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1008",
+      "amount": 38500,
+      "currency": "INR",
+      "reason": "socket_hang_up",
+      "reason_description": "Connection dropped mid-handshake with acquiring bank",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_28301",
+        "name": "Ayaan Iyer",
+        "email": "ayaan.iyer41@gmail.com",
+        "phone": "+919411057787",
+        "trust_score": 76,
+        "success_rate": 90.7,
+        "past_payments_count": 30
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-24T17:23:00Z",
+      "payment_method": "card_hdfc",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1009",
+      "amount": 31000,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_24371",
+        "name": "Reyansh Verma",
+        "email": "reyansh.verma29@gmail.com",
+        "phone": "+919694860228",
+        "trust_score": 70,
+        "success_rate": 91.6,
+        "past_payments_count": 30
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-21T03:24:00Z",
+      "payment_method": "card_icici",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1010",
+      "amount": 31000,
+      "currency": "INR",
+      "reason": "socket_hang_up",
+      "reason_description": "Connection dropped mid-handshake with acquiring bank",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_99166",
+        "name": "Sneha Sharma",
+        "email": "sneha.sharma24@gmail.com",
+        "phone": "+919927923735",
+        "trust_score": 77,
+        "success_rate": 91.1,
+        "past_payments_count": 24
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-21T15:18:00Z",
+      "payment_method": "card_icici",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1011",
+      "amount": 22500,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_33416",
+        "name": "Advaith Chatterjee",
+        "email": "advaith.chatterjee74@gmail.com",
+        "phone": "+917457031004",
+        "trust_score": 79,
+        "success_rate": 92.7,
+        "past_payments_count": 35
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-22T13:09:00Z",
+      "payment_method": "card_sbi",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1012",
+      "amount": 31000,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_52487",
+        "name": "Aarav Saxena",
+        "email": "aarav.saxena72@gmail.com",
+        "phone": "+917083651970",
+        "trust_score": 67,
+        "success_rate": 94.5,
+        "past_payments_count": 22
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-23T00:03:00Z",
+      "payment_method": "card_hdfc",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1013",
+      "amount": 5500,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Bank gateway did not respond within 30000ms",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_79822",
+        "name": "Aditi Gupta",
+        "email": "aditi.gupta26@gmail.com",
+        "phone": "+917551437149",
+        "trust_score": 90,
+        "success_rate": 94.9,
+        "past_payments_count": 13
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-23T06:33:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1014",
+      "amount": 8500,
+      "currency": "INR",
+      "reason": "socket_hang_up",
+      "reason_description": "Connection dropped mid-handshake with acquiring bank",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_62296",
+        "name": "Shaurya Rao",
+        "email": "shaurya.rao95@gmail.com",
+        "phone": "+919791205006",
+        "trust_score": 83,
+        "success_rate": 84.2,
+        "past_payments_count": 36
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-25T06:07:00Z",
+      "payment_method": "card_hdfc",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1015",
+      "amount": 5500,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_82603",
+        "name": "Vivaan Kapoor",
+        "email": "vivaan.kapoor39@gmail.com",
+        "phone": "+919527331058",
+        "trust_score": 74,
+        "success_rate": 75.2,
+        "past_payments_count": 43
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-21T02:14:00Z",
+      "payment_method": "upi",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1016",
+      "amount": 45000,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Bank gateway did not respond within 30000ms",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_41195",
+        "name": "Arjun Chatterjee",
+        "email": "arjun.chatterjee45@gmail.com",
+        "phone": "+919873237671",
+        "trust_score": 91,
+        "success_rate": 79.5,
+        "past_payments_count": 11
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-25T12:15:00Z",
+      "payment_method": "card_icici",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1017",
+      "amount": 8500,
+      "currency": "INR",
+      "reason": "socket_hang_up",
+      "reason_description": "Connection dropped mid-handshake with acquiring bank",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_56438",
+        "name": "Muhammad Deshmukh",
+        "email": "muhammad.deshmukh64@gmail.com",
+        "phone": "+918765670844",
+        "trust_score": 89,
+        "success_rate": 93.1,
+        "past_payments_count": 6
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-21T12:03:00Z",
+      "payment_method": "card_icici",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1018",
+      "amount": 45000,
+      "currency": "INR",
+      "reason": "bank_timeout",
+      "reason_description": "HDFC/SBI switch unreachable temporarily",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_34931",
+        "name": "Pranav Reddy",
+        "email": "pranav.reddy78@gmail.com",
+        "phone": "+918926780541",
+        "trust_score": 68,
+        "success_rate": 83.9,
+        "past_payments_count": 20
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-25T09:15:00Z",
+      "payment_method": "upi",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1019",
+      "amount": 45000,
+      "currency": "INR",
+      "reason": "socket_hang_up",
+      "reason_description": "Connection dropped mid-handshake with acquiring bank",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_95477",
+        "name": "Muhammad Verma",
+        "email": "muhammad.verma79@gmail.com",
+        "phone": "+917063384488",
+        "trust_score": 65,
+        "success_rate": 94.5,
+        "past_payments_count": 18
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-22T05:26:00Z",
+      "payment_method": "card_icici",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1020",
+      "amount": 8500,
+      "currency": "INR",
+      "reason": "socket_hang_up",
+      "reason_description": "Connection dropped mid-handshake with acquiring bank",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_59672",
+        "name": "Vihaan Patel",
+        "email": "vihaan.patel10@gmail.com",
+        "phone": "+918676848676",
+        "trust_score": 76,
+        "success_rate": 94.5,
+        "past_payments_count": 32
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-23T12:27:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1021",
+      "amount": 8500,
+      "currency": "INR",
+      "reason": "socket_hang_up",
+      "reason_description": "Connection dropped mid-handshake with acquiring bank",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_17665",
+        "name": "Dhruv Reddy",
+        "email": "dhruv.reddy84@gmail.com",
+        "phone": "+919328710672",
+        "trust_score": 63,
+        "success_rate": 90.7,
+        "past_payments_count": 6
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-20T23:37:00Z",
+      "payment_method": "card_icici",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1022",
+      "amount": 5500,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_18981",
+        "name": "Reyansh Patel",
+        "email": "reyansh.patel86@gmail.com",
+        "phone": "+917291889680",
+        "trust_score": 75,
+        "success_rate": 83.5,
+        "past_payments_count": 39
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-23T02:37:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1023",
+      "amount": 31000,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Bank gateway did not respond within 30000ms",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_84085",
+        "name": "Myra Kapoor",
+        "email": "myra.kapoor76@gmail.com",
+        "phone": "+918358798143",
+        "trust_score": 76,
+        "success_rate": 79.3,
+        "past_payments_count": 23
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-23T00:16:00Z",
+      "payment_method": "card_icici",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1024",
+      "amount": 38500,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_51441",
+        "name": "Kabir Joshi",
+        "email": "kabir.joshi19@gmail.com",
+        "phone": "+917040009587",
+        "trust_score": 89,
+        "success_rate": 88.0,
+        "past_payments_count": 39
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-21T12:04:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1025",
+      "amount": 31000,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_19016",
+        "name": "Arnav Kumar",
+        "email": "arnav.kumar41@gmail.com",
+        "phone": "+918587106770",
+        "trust_score": 78,
+        "success_rate": 78.3,
+        "past_payments_count": 37
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-23T16:39:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1026",
+      "amount": 38500,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Bank gateway did not respond within 30000ms",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_27601",
+        "name": "Kabir Malhotra",
+        "email": "kabir.malhotra43@gmail.com",
+        "phone": "+917495762348",
+        "trust_score": 66,
+        "success_rate": 90.6,
+        "past_payments_count": 12
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-23T08:18:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1027",
+      "amount": 38500,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_76244",
+        "name": "Atharva Iyer",
+        "email": "atharva.iyer72@gmail.com",
+        "phone": "+918078557553",
+        "trust_score": 63,
+        "success_rate": 76.9,
+        "past_payments_count": 30
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-23T09:02:00Z",
+      "payment_method": "upi",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1028",
+      "amount": 45000,
+      "currency": "INR",
+      "reason": "bank_timeout",
+      "reason_description": "HDFC/SBI switch unreachable temporarily",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_67912",
+        "name": "Advaith Patel",
+        "email": "advaith.patel80@gmail.com",
+        "phone": "+918836901321",
+        "trust_score": 60,
+        "success_rate": 77.3,
+        "past_payments_count": 12
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-26T06:02:00Z",
+      "payment_method": "card_sbi",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1029",
+      "amount": 22500,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_57795",
+        "name": "Aditya Rao",
+        "email": "aditya.rao15@gmail.com",
+        "phone": "+918536778950",
+        "trust_score": 73,
+        "success_rate": 89.3,
+        "past_payments_count": 45
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-21T13:22:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1030",
+      "amount": 31000,
+      "currency": "INR",
+      "reason": "socket_hang_up",
+      "reason_description": "Connection dropped mid-handshake with acquiring bank",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_31299",
+        "name": "Ayaan Nair",
+        "email": "ayaan.nair32@gmail.com",
+        "phone": "+918770791023",
+        "trust_score": 61,
+        "success_rate": 78.8,
+        "past_payments_count": 24
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-24T20:51:00Z",
+      "payment_method": "card_hdfc",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1031",
+      "amount": 8500,
+      "currency": "INR",
+      "reason": "bank_timeout",
+      "reason_description": "HDFC/SBI switch unreachable temporarily",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_15075",
+        "name": "Muhammad Chopra",
+        "email": "muhammad.chopra70@gmail.com",
+        "phone": "+917955345537",
+        "trust_score": 72,
+        "success_rate": 92.1,
+        "past_payments_count": 32
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-24T04:19:00Z",
+      "payment_method": "card_hdfc",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1032",
+      "amount": 5500,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_53025",
+        "name": "Shaurya Chopra",
+        "email": "shaurya.chopra45@gmail.com",
+        "phone": "+917298159856",
+        "trust_score": 77,
+        "success_rate": 82.4,
+        "past_payments_count": 35
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-24T17:43:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1033",
+      "amount": 5500,
+      "currency": "INR",
+      "reason": "bank_timeout",
+      "reason_description": "HDFC/SBI switch unreachable temporarily",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_86099",
+        "name": "Advaith Patel",
+        "email": "advaith.patel43@gmail.com",
+        "phone": "+917164313410",
+        "trust_score": 66,
+        "success_rate": 87.5,
+        "past_payments_count": 25
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-23T19:27:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1034",
+      "amount": 22500,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Bank gateway did not respond within 30000ms",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_15817",
+        "name": "Shaurya Iyer",
+        "email": "shaurya.iyer65@gmail.com",
+        "phone": "+917007263971",
+        "trust_score": 72,
+        "success_rate": 82.6,
+        "past_payments_count": 7
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-23T23:39:00Z",
+      "payment_method": "card_sbi",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1035",
+      "amount": 38500,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Bank gateway did not respond within 30000ms",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_97410",
+        "name": "Meera Rao",
+        "email": "meera.rao62@gmail.com",
+        "phone": "+918400944900",
+        "trust_score": 85,
+        "success_rate": 89.6,
+        "past_payments_count": 38
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-21T19:12:00Z",
+      "payment_method": "card_icici",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1036",
+      "amount": 38500,
+      "currency": "INR",
+      "reason": "socket_hang_up",
+      "reason_description": "Connection dropped mid-handshake with acquiring bank",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_84593",
+        "name": "Ishaan Saxena",
+        "email": "ishaan.saxena48@gmail.com",
+        "phone": "+918744079573",
+        "trust_score": 60,
+        "success_rate": 81.4,
+        "past_payments_count": 16
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-25T01:50:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1037",
+      "amount": 22500,
+      "currency": "INR",
+      "reason": "bank_timeout",
+      "reason_description": "HDFC/SBI switch unreachable temporarily",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_77000",
+        "name": "Aarohi Reddy",
+        "email": "aarohi.reddy70@gmail.com",
+        "phone": "+917728818981",
+        "trust_score": 65,
+        "success_rate": 81.0,
+        "past_payments_count": 45
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-24T00:05:00Z",
+      "payment_method": "card_hdfc",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1038",
+      "amount": 8500,
+      "currency": "INR",
+      "reason": "bank_timeout",
+      "reason_description": "HDFC/SBI switch unreachable temporarily",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_16057",
+        "name": "Ayaan Sharma",
+        "email": "ayaan.sharma41@gmail.com",
+        "phone": "+919040695043",
+        "trust_score": 64,
+        "success_rate": 84.6,
+        "past_payments_count": 43
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-22T12:45:00Z",
+      "payment_method": "card_icici",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1039",
+      "amount": 22500,
+      "currency": "INR",
+      "reason": "socket_hang_up",
+      "reason_description": "Connection dropped mid-handshake with acquiring bank",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_23970",
+        "name": "Ayaan Sharma",
+        "email": "ayaan.sharma64@gmail.com",
+        "phone": "+917939915527",
+        "trust_score": 71,
+        "success_rate": 91.9,
+        "past_payments_count": 36
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-25T09:03:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1040",
+      "amount": 45000,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_70901",
+        "name": "Anushka Mehta",
+        "email": "anushka.mehta95@gmail.com",
+        "phone": "+919281194061",
+        "trust_score": 80,
+        "success_rate": 95.0,
+        "past_payments_count": 31
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-25T20:27:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1041",
+      "amount": 8500,
+      "currency": "INR",
+      "reason": "socket_hang_up",
+      "reason_description": "Connection dropped mid-handshake with acquiring bank",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_43972",
+        "name": "Isha Joshi",
+        "email": "isha.joshi41@gmail.com",
+        "phone": "+919738735023",
+        "trust_score": 77,
+        "success_rate": 91.1,
+        "past_payments_count": 36
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-25T15:40:00Z",
+      "payment_method": "card_hdfc",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1042",
+      "amount": 22500,
+      "currency": "INR",
+      "reason": "bank_timeout",
+      "reason_description": "HDFC/SBI switch unreachable temporarily",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_45614",
+        "name": "Dhruv Nair",
+        "email": "dhruv.nair52@gmail.com",
+        "phone": "+918373142116",
+        "trust_score": 65,
+        "success_rate": 77.9,
+        "past_payments_count": 17
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-24T13:44:00Z",
+      "payment_method": "card_hdfc",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1043",
+      "amount": 5500,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_81121",
+        "name": "Myra Singh",
+        "email": "myra.singh69@gmail.com",
+        "phone": "+918785736751",
+        "trust_score": 63,
+        "success_rate": 79.3,
+        "past_payments_count": 29
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-24T14:57:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1044",
+      "amount": 45000,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Bank gateway did not respond within 30000ms",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_10772",
+        "name": "Pari Bhatia",
+        "email": "pari.bhatia55@gmail.com",
+        "phone": "+918282531582",
+        "trust_score": 84,
+        "success_rate": 92.9,
+        "past_payments_count": 29
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-26T04:47:00Z",
+      "payment_method": "netbanking_axis",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1045",
+      "amount": 22500,
+      "currency": "INR",
+      "reason": "gateway_error",
+      "reason_description": "Transient 504 Gateway Timeout from NPCI/switch",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_73654",
+        "name": "Aaryav Deshmukh",
+        "email": "aaryav.deshmukh13@gmail.com",
+        "phone": "+918670128972",
+        "trust_score": 81,
+        "success_rate": 89.0,
+        "past_payments_count": 28
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-22T05:53:00Z",
+      "payment_method": "card_icici",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1046",
+      "amount": 4200,
+      "currency": "INR",
+      "reason": "insufficient_funds",
+      "reason_description": "Account has insufficient funds at time of billing",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_87580",
+        "name": "Vivaan Chopra",
+        "email": "vivaan.chopra82@gmail.com",
+        "phone": "+919847562279",
+        "trust_score": 46,
+        "success_rate": 62.4,
+        "past_payments_count": 30
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-21T21:55:00Z",
+      "payment_method": "upi_gpay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1047",
+      "amount": 999,
+      "currency": "INR",
+      "reason": "insufficient_funds",
+      "reason_description": "Account has insufficient funds at time of billing",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_37742",
+        "name": "Pari Singh",
+        "email": "pari.singh68@gmail.com",
+        "phone": "+918403792057",
+        "trust_score": 66,
+        "success_rate": 81.3,
+        "past_payments_count": 27
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-23T10:48:00Z",
+      "payment_method": "upi_gpay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1048",
+      "amount": 4950,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_80702",
+        "name": "Isha Sharma",
+        "email": "isha.sharma16@gmail.com",
+        "phone": "+918503068227",
+        "trust_score": 59,
+        "success_rate": 78.2,
+        "past_payments_count": 44
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-20T21:48:00Z",
+      "payment_method": "card_visa",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1049",
+      "amount": 1499,
+      "currency": "INR",
+      "reason": "insufficient_funds",
+      "reason_description": "Account has insufficient funds at time of billing",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_41266",
+        "name": "Vandana Mehta",
+        "email": "vandana.mehta26@gmail.com",
+        "phone": "+919033929266",
+        "trust_score": 52,
+        "success_rate": 75.8,
+        "past_payments_count": 16
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-25T10:44:00Z",
+      "payment_method": "card_rupay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1050",
+      "amount": 1499,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_31465",
+        "name": "Shreya Malhotra",
+        "email": "shreya.malhotra49@gmail.com",
+        "phone": "+917464280597",
+        "trust_score": 46,
+        "success_rate": 86.0,
+        "past_payments_count": 39
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-24T11:25:00Z",
+      "payment_method": "card_mastercard",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1051",
+      "amount": 4200,
+      "currency": "INR",
+      "reason": "issuer_declined",
+      "reason_description": "Card declined by issuing bank (do not honor)",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_99687",
+        "name": "Muhammad Rao",
+        "email": "muhammad.rao86@gmail.com",
+        "phone": "+917519927529",
+        "trust_score": 47,
+        "success_rate": 69.7,
+        "past_payments_count": 30
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-24T09:04:00Z",
+      "payment_method": "card_rupay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1052",
+      "amount": 4950,
+      "currency": "INR",
+      "reason": "issuer_declined",
+      "reason_description": "Card declined by issuing bank (do not honor)",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_66822",
+        "name": "Aditi Malhotra",
+        "email": "aditi.malhotra56@gmail.com",
+        "phone": "+919729817240",
+        "trust_score": 74,
+        "success_rate": 79.8,
+        "past_payments_count": 30
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-22T08:46:00Z",
+      "payment_method": "card_rupay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1053",
+      "amount": 3250,
+      "currency": "INR",
+      "reason": "card_limit_exceeded",
+      "reason_description": "Daily e-commerce transaction limit exceeded on card",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_52245",
+        "name": "Roshni Iyer",
+        "email": "roshni.iyer41@gmail.com",
+        "phone": "+917372214308",
+        "trust_score": 62,
+        "success_rate": 84.7,
+        "past_payments_count": 18
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-25T09:36:00Z",
+      "payment_method": "upi_gpay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1054",
+      "amount": 999,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_73904",
+        "name": "Ananya Patel",
+        "email": "ananya.patel37@gmail.com",
+        "phone": "+918523961606",
+        "trust_score": 61,
+        "success_rate": 69.5,
+        "past_payments_count": 41
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-23T09:35:00Z",
+      "payment_method": "card_visa",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1055",
+      "amount": 999,
+      "currency": "INR",
+      "reason": "insufficient_funds",
+      "reason_description": "Account has insufficient funds at time of billing",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_82768",
+        "name": "Myra Bhatia",
+        "email": "myra.bhatia40@gmail.com",
+        "phone": "+919966144543",
+        "trust_score": 75,
+        "success_rate": 78.1,
+        "past_payments_count": 34
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-25T05:50:00Z",
+      "payment_method": "card_visa",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1056",
+      "amount": 2199,
+      "currency": "INR",
+      "reason": "issuer_declined",
+      "reason_description": "Card declined by issuing bank (do not honor)",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_50135",
+        "name": "Kiara Nair",
+        "email": "kiara.nair94@gmail.com",
+        "phone": "+919497762234",
+        "trust_score": 68,
+        "success_rate": 73.3,
+        "past_payments_count": 36
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-24T03:27:00Z",
+      "payment_method": "card_rupay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1057",
+      "amount": 4800,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_42951",
+        "name": "Aaryav Rao",
+        "email": "aaryav.rao39@gmail.com",
+        "phone": "+917518213060",
+        "trust_score": 57,
+        "success_rate": 68.8,
+        "past_payments_count": 37
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-22T10:12:00Z",
+      "payment_method": "card_mastercard",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1058",
+      "amount": 2199,
+      "currency": "INR",
+      "reason": "card_limit_exceeded",
+      "reason_description": "Daily e-commerce transaction limit exceeded on card",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_47093",
+        "name": "Kavya Saxena",
+        "email": "kavya.saxena22@gmail.com",
+        "phone": "+917833728665",
+        "trust_score": 63,
+        "success_rate": 66.4,
+        "past_payments_count": 14
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-23T16:00:00Z",
+      "payment_method": "card_mastercard",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1059",
+      "amount": 999,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_26551",
+        "name": "Sneha Rao",
+        "email": "sneha.rao91@gmail.com",
+        "phone": "+919108307952",
+        "trust_score": 51,
+        "success_rate": 84.4,
+        "past_payments_count": 39
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-23T11:30:00Z",
+      "payment_method": "upi_gpay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1060",
+      "amount": 2199,
+      "currency": "INR",
+      "reason": "card_limit_exceeded",
+      "reason_description": "Daily e-commerce transaction limit exceeded on card",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_72616",
+        "name": "Vihaan Iyer",
+        "email": "vihaan.iyer24@gmail.com",
+        "phone": "+917280647907",
+        "trust_score": 70,
+        "success_rate": 73.8,
+        "past_payments_count": 39
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-21T00:09:00Z",
+      "payment_method": "card_mastercard",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1061",
+      "amount": 999,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_64548",
+        "name": "Sai Banerjee",
+        "email": "sai.banerjee87@gmail.com",
+        "phone": "+919560345306",
+        "trust_score": 59,
+        "success_rate": 81.7,
+        "past_payments_count": 27
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-25T06:58:00Z",
+      "payment_method": "upi_gpay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1062",
+      "amount": 4950,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_84531",
+        "name": "Riya Rao",
+        "email": "riya.rao89@gmail.com",
+        "phone": "+917258687184",
+        "trust_score": 51,
+        "success_rate": 86.5,
+        "past_payments_count": 16
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-22T17:16:00Z",
+      "payment_method": "card_visa",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1063",
+      "amount": 1499,
+      "currency": "INR",
+      "reason": "insufficient_funds",
+      "reason_description": "Account has insufficient funds at time of billing",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_30517",
+        "name": "Sneha Gupta",
+        "email": "sneha.gupta10@gmail.com",
+        "phone": "+918754569613",
+        "trust_score": 73,
+        "success_rate": 79.3,
+        "past_payments_count": 33
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-23T13:02:00Z",
+      "payment_method": "card_mastercard",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1064",
+      "amount": 4800,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_40595",
+        "name": "Anushka Gupta",
+        "email": "anushka.gupta43@gmail.com",
+        "phone": "+919684603688",
+        "trust_score": 57,
+        "success_rate": 71.9,
+        "past_payments_count": 37
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-22T20:41:00Z",
+      "payment_method": "card_mastercard",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1065",
+      "amount": 4950,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_31747",
+        "name": "Arjun Verma",
+        "email": "arjun.verma49@gmail.com",
+        "phone": "+919555694670",
+        "trust_score": 63,
+        "success_rate": 72.3,
+        "past_payments_count": 32
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-23T16:44:00Z",
+      "payment_method": "upi_gpay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1066",
+      "amount": 4200,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_20543",
+        "name": "Aditi Joshi",
+        "email": "aditi.joshi86@gmail.com",
+        "phone": "+917171200764",
+        "trust_score": 72,
+        "success_rate": 80.6,
+        "past_payments_count": 41
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-23T03:01:00Z",
+      "payment_method": "card_visa",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1067",
+      "amount": 4800,
+      "currency": "INR",
+      "reason": "insufficient_funds",
+      "reason_description": "Account has insufficient funds at time of billing",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_98117",
+        "name": "Roshni Sharma",
+        "email": "roshni.sharma44@gmail.com",
+        "phone": "+919474961963",
+        "trust_score": 47,
+        "success_rate": 81.4,
+        "past_payments_count": 14
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-25T11:33:00Z",
+      "payment_method": "upi_gpay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1068",
+      "amount": 1499,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_21959",
+        "name": "Riya Bhatia",
+        "email": "riya.bhatia70@gmail.com",
+        "phone": "+918494481363",
+        "trust_score": 71,
+        "success_rate": 69.3,
+        "past_payments_count": 45
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-21T13:54:00Z",
+      "payment_method": "card_mastercard",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1069",
+      "amount": 3250,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_82102",
+        "name": "Dhruv Chopra",
+        "email": "dhruv.chopra14@gmail.com",
+        "phone": "+918953462417",
+        "trust_score": 50,
+        "success_rate": 68.8,
+        "past_payments_count": 23
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-21T16:49:00Z",
+      "payment_method": "upi_gpay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1070",
+      "amount": 4800,
+      "currency": "INR",
+      "reason": "issuer_declined",
+      "reason_description": "Card declined by issuing bank (do not honor)",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_17104",
+        "name": "Anushka Deshmukh",
+        "email": "anushka.deshmukh34@gmail.com",
+        "phone": "+919226680251",
+        "trust_score": 68,
+        "success_rate": 77.4,
+        "past_payments_count": 34
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-25T04:48:00Z",
+      "payment_method": "card_visa",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1071",
+      "amount": 2199,
+      "currency": "INR",
+      "reason": "insufficient_funds",
+      "reason_description": "Account has insufficient funds at time of billing",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_67424",
+        "name": "Arnav Rao",
+        "email": "arnav.rao99@gmail.com",
+        "phone": "+919081821325",
+        "trust_score": 52,
+        "success_rate": 60.8,
+        "past_payments_count": 43
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-23T00:45:00Z",
+      "payment_method": "card_mastercard",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1072",
+      "amount": 4200,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_22217",
+        "name": "Sneha Deshmukh",
+        "email": "sneha.deshmukh38@gmail.com",
+        "phone": "+917487311805",
+        "trust_score": 74,
+        "success_rate": 86.5,
+        "past_payments_count": 44
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-22T02:31:00Z",
+      "payment_method": "card_rupay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1073",
+      "amount": 3250,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_69871",
+        "name": "Isha Nair",
+        "email": "isha.nair80@gmail.com",
+        "phone": "+917621232513",
+        "trust_score": 69,
+        "success_rate": 65.3,
+        "past_payments_count": 41
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-25T21:47:00Z",
+      "payment_method": "card_mastercard",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1074",
+      "amount": 2199,
+      "currency": "INR",
+      "reason": "issuer_declined",
+      "reason_description": "Card declined by issuing bank (do not honor)",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_45018",
+        "name": "Diya Chatterjee",
+        "email": "diya.chatterjee10@gmail.com",
+        "phone": "+918214784185",
+        "trust_score": 64,
+        "success_rate": 83.4,
+        "past_payments_count": 40
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-25T16:55:00Z",
+      "payment_method": "card_mastercard",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1075",
+      "amount": 4200,
+      "currency": "INR",
+      "reason": "card_limit_exceeded",
+      "reason_description": "Daily e-commerce transaction limit exceeded on card",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_82340",
+        "name": "Saanvi Singh",
+        "email": "saanvi.singh79@gmail.com",
+        "phone": "+918620104855",
+        "trust_score": 74,
+        "success_rate": 86.1,
+        "past_payments_count": 15
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-23T00:36:00Z",
+      "payment_method": "upi_gpay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1076",
+      "amount": 4950,
+      "currency": "INR",
+      "reason": "insufficient_funds",
+      "reason_description": "Account has insufficient funds at time of billing",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_71993",
+        "name": "Aditya Singh",
+        "email": "aditya.singh58@gmail.com",
+        "phone": "+918658195603",
+        "trust_score": 54,
+        "success_rate": 73.9,
+        "past_payments_count": 5
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-21T19:32:00Z",
+      "payment_method": "card_rupay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1077",
+      "amount": 4950,
+      "currency": "INR",
+      "reason": "issuer_declined",
+      "reason_description": "Card declined by issuing bank (do not honor)",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_69890",
+        "name": "Muhammad Chatterjee",
+        "email": "muhammad.chatterjee11@gmail.com",
+        "phone": "+917619142798",
+        "trust_score": 71,
+        "success_rate": 84.4,
+        "past_payments_count": 12
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-21T06:30:00Z",
+      "payment_method": "card_rupay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1078",
+      "amount": 4200,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer failed to enter 3D-Secure OTP before expiration",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_98389",
+        "name": "Reyansh Singh",
+        "email": "reyansh.singh78@gmail.com",
+        "phone": "+918632127923",
+        "trust_score": 65,
+        "success_rate": 77.6,
+        "past_payments_count": 34
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-26T05:02:00Z",
+      "payment_method": "card_visa",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1079",
+      "amount": 4800,
+      "currency": "INR",
+      "reason": "insufficient_funds",
+      "reason_description": "Account has insufficient funds at time of billing",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_66881",
+        "name": "Advik Gupta",
+        "email": "advik.gupta22@gmail.com",
+        "phone": "+919721926191",
+        "trust_score": 51,
+        "success_rate": 72.4,
+        "past_payments_count": 22
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-20T18:02:00Z",
+      "payment_method": "card_rupay",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1080",
+      "amount": 2199,
+      "currency": "INR",
+      "reason": "issuer_declined",
+      "reason_description": "Card declined by issuing bank (do not honor)",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_29080",
+        "name": "Aadhya Deshmukh",
+        "email": "aadhya.deshmukh41@gmail.com",
+        "phone": "+919281341978",
+        "trust_score": 71,
+        "success_rate": 75.8,
+        "past_payments_count": 14
+      },
+      "merchant": {
+        "id": "mer_fashionhub_03",
+        "name": "VogueAura Fashion",
+        "category": "D2C Apparel",
+        "chargeback_rate": 0.65,
+        "health_score": 82
+      },
+      "timestamp": "2026-08-22T06:11:00Z",
+      "payment_method": "card_visa",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1081",
+      "amount": 65000,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Acquiring bank timeout on large ticket authorization",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_28758",
+        "name": "Aditi Kapoor",
+        "email": "aditi.kapoor39@gmail.com",
+        "phone": "+918980623803",
+        "trust_score": 98,
+        "success_rate": 90.8,
+        "past_payments_count": 19
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-20T13:57:00Z",
+      "payment_method": "netbanking",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1082",
+      "amount": 72000,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer delayed during step-up biometric/OTP verification",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_55293",
+        "name": "Arjun Joshi",
+        "email": "arjun.joshi85@gmail.com",
+        "phone": "+918284857706",
+        "trust_score": 98,
+        "success_rate": 98.6,
+        "past_payments_count": 19
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-25T07:54:00Z",
+      "payment_method": "card_icici_sapphiro",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1083",
+      "amount": 65000,
+      "currency": "INR",
+      "reason": "issuer_declined",
+      "reason_description": "High-value velocity check triggered by issuing bank",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_59986",
+        "name": "Muhammad Nair",
+        "email": "muhammad.nair83@gmail.com",
+        "phone": "+918541717841",
+        "trust_score": 96,
+        "success_rate": 91.3,
+        "past_payments_count": 21
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-20T16:53:00Z",
+      "payment_method": "netbanking",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1084",
+      "amount": 38000,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer delayed during step-up biometric/OTP verification",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_47512",
+        "name": "Shreya Bhatia",
+        "email": "shreya.bhatia39@gmail.com",
+        "phone": "+919607324296",
+        "trust_score": 89,
+        "success_rate": 90.4,
+        "past_payments_count": 15
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-23T03:43:00Z",
+      "payment_method": "card_hdfc_regalia",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1085",
+      "amount": 38000,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Acquiring bank timeout on large ticket authorization",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_14373",
+        "name": "Kabir Joshi",
+        "email": "kabir.joshi84@gmail.com",
+        "phone": "+918567067057",
+        "trust_score": 82,
+        "success_rate": 89.0,
+        "past_payments_count": 21
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-23T22:47:00Z",
+      "payment_method": "netbanking",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1086",
+      "amount": 45000,
+      "currency": "INR",
+      "reason": "issuer_declined",
+      "reason_description": "High-value velocity check triggered by issuing bank",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_79579",
+        "name": "Pooja Kumar",
+        "email": "pooja.kumar74@gmail.com",
+        "phone": "+918170496062",
+        "trust_score": 83,
+        "success_rate": 90.8,
+        "past_payments_count": 33
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-23T14:47:00Z",
+      "payment_method": "card_icici_sapphiro",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1087",
+      "amount": 65000,
+      "currency": "INR",
+      "reason": "issuer_declined",
+      "reason_description": "High-value velocity check triggered by issuing bank",
+      "failure_category": "issuer",
+      "customer": {
+        "customer_id": "cust_98647",
+        "name": "Ayaan Nair",
+        "email": "ayaan.nair96@gmail.com",
+        "phone": "+918706869362",
+        "trust_score": 95,
+        "success_rate": 92.0,
+        "past_payments_count": 28
+      },
+      "merchant": {
+        "id": "mer_quickkart_01",
+        "name": "QuickKart India",
+        "category": "E-Commerce",
+        "chargeback_rate": 0.25,
+        "health_score": 94
+      },
+      "timestamp": "2026-08-20T14:16:00Z",
+      "payment_method": "card_amex",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1088",
+      "amount": 52000,
+      "currency": "INR",
+      "reason": "otp_expired",
+      "reason_description": "Customer delayed during step-up biometric/OTP verification",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_93695",
+        "name": "Roshni Chopra",
+        "email": "roshni.chopra57@gmail.com",
+        "phone": "+917465342967",
+        "trust_score": 85,
+        "success_rate": 93.2,
+        "past_payments_count": 42
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-23T22:58:00Z",
+      "payment_method": "card_hdfc_regalia",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1089",
+      "amount": 38000,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Acquiring bank timeout on large ticket authorization",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_25292",
+        "name": "Kabir Deshmukh",
+        "email": "kabir.deshmukh27@gmail.com",
+        "phone": "+917194763060",
+        "trust_score": 79,
+        "success_rate": 91.3,
+        "past_payments_count": 34
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-21T16:06:00Z",
+      "payment_method": "card_hdfc_regalia",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1090",
+      "amount": 45000,
+      "currency": "INR",
+      "reason": "network_timeout",
+      "reason_description": "Acquiring bank timeout on large ticket authorization",
+      "failure_category": "network",
+      "customer": {
+        "customer_id": "cust_97881",
+        "name": "Anushka Kumar",
+        "email": "anushka.kumar99@gmail.com",
+        "phone": "+919320109101",
+        "trust_score": 91,
+        "success_rate": 94.5,
+        "past_payments_count": 12
+      },
+      "merchant": {
+        "id": "mer_saascloud_02",
+        "name": "CloudScale SaaS",
+        "category": "B2B Subscription",
+        "chargeback_rate": 0.15,
+        "health_score": 98
+      },
+      "timestamp": "2026-08-24T21:41:00Z",
+      "payment_method": "card_amex",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1091",
+      "amount": 92000,
+      "currency": "INR",
+      "reason": "fraud_suspected",
+      "reason_description": "Risk engine flagged abnormal IP velocity and geolocation",
+      "failure_category": "security",
+      "customer": {
+        "customer_id": "cust_58566",
+        "name": "Aaryav Verma",
+        "email": "aaryav.verma37@gmail.com",
+        "phone": "+918904315855",
+        "trust_score": 48,
+        "success_rate": 56.6,
+        "past_payments_count": 26
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-21T12:43:00Z",
+      "payment_method": "card_international",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1092",
+      "amount": 92000,
+      "currency": "INR",
+      "reason": "currency_mismatch",
+      "reason_description": "Transaction currency not supported by merchant account",
+      "failure_category": "security",
+      "customer": {
+        "customer_id": "cust_46160",
+        "name": "Vihaan Chopra",
+        "email": "vihaan.chopra34@gmail.com",
+        "phone": "+917524671997",
+        "trust_score": 49,
+        "success_rate": 32.6,
+        "past_payments_count": 16
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-20T16:03:00Z",
+      "payment_method": "card_international",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1093",
+      "amount": 68000,
+      "currency": "INR",
+      "reason": "currency_mismatch",
+      "reason_description": "Transaction currency not supported by merchant account",
+      "failure_category": "security",
+      "customer": {
+        "customer_id": "cust_18992",
+        "name": "Tanvi Reddy",
+        "email": "tanvi.reddy80@gmail.com",
+        "phone": "+917889734128",
+        "trust_score": 33,
+        "success_rate": 52.8,
+        "past_payments_count": 17
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-23T23:49:00Z",
+      "payment_method": "card_international",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1094",
+      "amount": 92000,
+      "currency": "INR",
+      "reason": "webhook_delivery_failed",
+      "reason_description": "Merchant webhook endpoint returned HTTP 500",
+      "failure_category": "security",
+      "customer": {
+        "customer_id": "cust_27038",
+        "name": "Aaryav Mehta",
+        "email": "aaryav.mehta79@gmail.com",
+        "phone": "+918076551580",
+        "trust_score": 31,
+        "success_rate": 33.1,
+        "past_payments_count": 4
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-21T20:00:00Z",
+      "payment_method": "card_international",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1095",
+      "amount": 68000,
+      "currency": "INR",
+      "reason": "currency_mismatch",
+      "reason_description": "Transaction currency not supported by merchant account",
+      "failure_category": "security",
+      "customer": {
+        "customer_id": "cust_44782",
+        "name": "Vivaan Patel",
+        "email": "vivaan.patel16@gmail.com",
+        "phone": "+917544423789",
+        "trust_score": 46,
+        "success_rate": 44.7,
+        "past_payments_count": 7
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-25T12:28:00Z",
+      "payment_method": "card_international",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1096",
+      "amount": 92000,
+      "currency": "INR",
+      "reason": "currency_mismatch",
+      "reason_description": "Transaction currency not supported by merchant account",
+      "failure_category": "security",
+      "customer": {
+        "customer_id": "cust_39038",
+        "name": "Aarohi Chatterjee",
+        "email": "aarohi.chatterjee88@gmail.com",
+        "phone": "+917186251406",
+        "trust_score": 53,
+        "success_rate": 38.4,
+        "past_payments_count": 44
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-20T18:03:00Z",
+      "payment_method": "card_international",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1097",
+      "amount": 85000,
+      "currency": "INR",
+      "reason": "fraud_suspected",
+      "reason_description": "Risk engine flagged abnormal IP velocity and geolocation",
+      "failure_category": "security",
+      "customer": {
+        "customer_id": "cust_68138",
+        "name": "Muhammad Bhatia",
+        "email": "muhammad.bhatia19@gmail.com",
+        "phone": "+917346992476",
+        "trust_score": 40,
+        "success_rate": 47.0,
+        "past_payments_count": 7
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-21T19:17:00Z",
+      "payment_method": "card_international",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1098",
+      "amount": 85000,
+      "currency": "INR",
+      "reason": "currency_mismatch",
+      "reason_description": "Transaction currency not supported by merchant account",
+      "failure_category": "security",
+      "customer": {
+        "customer_id": "cust_89354",
+        "name": "Anushka Chatterjee",
+        "email": "anushka.chatterjee65@gmail.com",
+        "phone": "+917425968237",
+        "trust_score": 27,
+        "success_rate": 53.9,
+        "past_payments_count": 44
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-22T18:27:00Z",
+      "payment_method": "card_international",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1099",
+      "amount": 68000,
+      "currency": "INR",
+      "reason": "fraud_suspected",
+      "reason_description": "Risk engine flagged abnormal IP velocity and geolocation",
+      "failure_category": "security",
+      "customer": {
+        "customer_id": "cust_62262",
+        "name": "Diya Joshi",
+        "email": "diya.joshi63@gmail.com",
+        "phone": "+917408390575",
+        "trust_score": 40,
+        "success_rate": 41.9,
+        "past_payments_count": 45
+      },
+      "merchant": {
+        "id": "mer_traveljet_05",
+        "name": "YatraWander Travels",
+        "category": "Travel & Hospitality",
+        "chargeback_rate": 0.85,
+        "health_score": 76
+      },
+      "timestamp": "2026-08-23T04:23:00Z",
+      "payment_method": "card_international",
+      "attempts": 1,
+      "is_test_special": false
+    },
+    {
+      "tx_id": "tx_1100",
+      "amount": 85000,
+      "currency": "INR",
+      "reason": "webhook_delivery_failed",
+      "reason_description": "Merchant webhook endpoint returned HTTP 500",
+      "failure_category": "security",
+      "customer": {
+        "customer_id": "cust_22219",
+        "name": "Reyansh Gupta",
+        "email": "reyansh.gupta65@gmail.com",
+        "phone": "+917414741061",
+        "trust_score": 43,
+        "success_rate": 52.7,
+        "past_payments_count": 38
+      },
+      "merchant": {
+        "id": "mer_edutech_04",
+        "name": "ShikshaPlus EdTech",
+        "category": "Education",
+        "chargeback_rate": 0.35,
+        "health_score": 90
+      },
+      "timestamp": "2026-08-21T02:37:00Z",
+      "payment_method": "card_international",
+      "attempts": 1,
+      "is_test_special": false
+    }
+  ]
+}
