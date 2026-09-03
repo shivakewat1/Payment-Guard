@@ -7,6 +7,32 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      backgroundImage: {
+        "grid-pattern":
+          "linear-gradient(rgba(34, 211, 238, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 211, 238, 0.07) 1px, transparent 1px)",
+      },
+      backgroundSize: {
+        "grid-lg": "50px 50px",
+      },
+      animation: {
+        float: "float 3s ease-in-out infinite",
+        pulse_glow: "pulse_glow 2s ease-in-out infinite",
+        shimmer: "shimmer 2s ease-in-out infinite",
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-15px)" },
+        },
+        pulse_glow: {
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(34, 211, 238, 0.7)" },
+          "50%": { boxShadow: "0 0 0 10px rgba(34, 211, 238, 0)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-1000px 0" },
+          "100%": { backgroundPosition: "1000px 0" },
+        },
+      },
       colors: {
         brand: {
           50: '#f0f9ff',
@@ -21,20 +47,10 @@ export default {
           900: '#0c4a6e',
           950: '#082f49',
         },
-        navy: {
-          800: '#0b1d3a',
-          850: '#091830',
-          900: '#07152b',
-          950: '#040d1c',
-        }
       },
       fontFamily: {
         sans: ['Inter', 'Outfit', 'sans-serif'],
       },
-      boxShadow: {
-        glow: '0 0 25px -5px rgba(14, 165, 233, 0.25)',
-        'glow-emerald': '0 0 25px -5px rgba(16, 185, 129, 0.25)',
-      }
     },
   },
   plugins: [],
