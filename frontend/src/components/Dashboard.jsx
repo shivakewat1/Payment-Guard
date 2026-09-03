@@ -183,11 +183,11 @@ export default function Dashboard() {
           
           {/* Logo & Identity */}
           <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-cyan-500 p-0.5 shadow-lg shadow-brand-500/20 flex items-center justify-center">
-              <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5 text-brand-400" />
-              </div>
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="PaymentGuard Logo" 
+              className="w-10 h-10 rounded-xl object-contain shadow-lg shadow-brand-500/25 border border-brand-500/30 hover:scale-105 transition-transform"
+            />
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-extrabold text-base tracking-tight text-white font-sans">PaymentGuard</span>
