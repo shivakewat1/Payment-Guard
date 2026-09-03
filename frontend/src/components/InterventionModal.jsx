@@ -1,5 +1,6 @@
 import React from 'react';
 import { X, ShieldCheck, Zap, PhoneCall, MessageSquare, AlertCircle, RefreshCw, CheckCircle, ArrowRight } from 'lucide-react';
+import AudioVisualizer from './AudioVisualizer';
 
 export default function InterventionModal({ intervention, failure, onClose, onExecute, loading }) {
   if (!intervention && !loading) return null;
@@ -108,21 +109,13 @@ export default function InterventionModal({ intervention, failure, onClose, onEx
 
               {/* Action-Specific Parameter Previews */}
               {action === 'VOICE_CALL' && (
-                <div className="p-4 rounded-xl bg-slate-950 border border-emerald-500/30 space-y-3">
-                  <div className="flex items-center justify-between text-xs font-semibold text-emerald-400">
-                    <span className="flex items-center gap-1.5">
-                      <PhoneCall className="w-4 h-4" /> Hinglish Voice Concierge Script Preview
-                    </span>
-                    <span className="text-slate-400 font-mono">{params.language?.toUpperCase()}</span>
-                  </div>
-                  <div className="p-3 bg-slate-900/90 rounded-lg border border-slate-800 text-xs text-slate-200 leading-relaxed font-sans">
-                    "{params.voice_script}"
-                  </div>
-                  <div className="flex items-center justify-between text-[11px] text-slate-400 px-1">
-                    <span>Voice Persona: <strong className="text-slate-200">{params.voice_agent_persona}</strong></span>
-                    <span>Recipient: <strong className="text-slate-200">{params.recipient_phone}</strong></span>
-                  </div>
-                </div>
+                <AudioVisualizer
+                  script={params.voice_script}
+                  customerName={failure?.customer_name}
+                  amount={failure?.amount}
+                  merchantName={failure?.merchant_id}
+                  phone={params.recipient_phone}
+                />
               )}
 
               {action === 'CUSTOMER_SMS' && (
