@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ShieldCheck, Zap, RefreshCw, Video, Volume2, VolumeX, 
-  Sparkles, ArrowRight, ChevronRight
+  Sparkles, ArrowRight, ChevronRight, Bell
 } from 'lucide-react';
 import { api } from '../services/api';
 import { soundService } from '../services/audio';
@@ -22,11 +22,12 @@ import LiveDashboard from './LiveDashboard';
 import InteractiveRecoveryChart from './InteractiveRecoveryChart';
 import RiskHeatmap from './RiskHeatmap';
 import FloatingActionMenu from './FloatingActionMenu';
-import { NotificationCenter, useNotification } from './NotificationCenter';
+import { NotificationCenter, NotificationDrawer, useNotification } from './NotificationCenter';
 
 export default function Dashboard() {
-  const { notifications, notify, removeNotification } = useNotification();
+  const { notifications, history, notify, removeNotification, clearHistory } = useNotification();
   const [showSplash, setShowSplash] = useState(true);
+  const [showDrawer, setShowDrawer] = useState(false);
   const [activeTab, setActiveTab] = useState('overview'); // overview, live, funnel, architecture, audit
   const [metrics, setMetrics] = useState(null);
   const [failures, setFailures] = useState([]);
@@ -43,18 +44,16 @@ export default function Dashboard() {
 
   // Batch pipeline state
   const [batchRunning, setBatchRunning] = useState(false);
-  const [toastMessage, setToastMessage] = useState(null);
 
   useEffect(() => {
     loadData();
   }, []);
 
   const showToast = (msg, type = 'success') => {
-    setToastMessage({ msg, type });
+    notify(msg, type);
     if (type === 'success') {
       soundService.playSuccessChime();
     }
-    setTimeout(() => setToastMessage(null), 5000);
   };
 
   const handleToggleMute = () => {
@@ -259,6 +258,19 @@ export default function Dashboard() {
 
           {/* Quick Actions */}
           <div className="flex items-center gap-2">
+            <button
+              onClick={() => setShowDrawer(true)}
+              className="p-2 rounded-xl bg-white/90 hover:bg-white text-slate-700 border border-slate-300 transition-colors shadow-sm relative"
+              title="Notification Center Activity Log"
+            >
+              <Bell className="w-4 h-4 text-[#FF6A00]" />
+              {history.length > 0 && (
+                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#151515] text-white font-mono text-[9px] font-bold flex items-center justify-center border border-white">
+                  {history.length}
+                </span>
+              )}
+            </button>
+
             <button
               onClick={handleToggleMute}
               className="p-2 rounded-xl bg-white/90 hover:bg-white text-slate-700 border border-slate-300 transition-colors shadow-sm"
@@ -609,6 +621,14 @@ export default function Dashboard() {
       <NotificationCenter
         notifications={notifications}
         onClose={removeNotification}
+      />
+
+      {/* Notification Activity Drawer */}
+      <NotificationDrawer
+        isOpen={showDrawer}
+        onClose={() => setShowDrawer(false)}
+        history={history}
+        onClear={clearHistory}
       />
 
     </div>
