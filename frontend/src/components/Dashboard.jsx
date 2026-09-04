@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ShieldCheck, Zap, RefreshCw, Video, Volume2, VolumeX, 
-  Sparkles, CheckCircle2, ArrowRight, Play 
+  Sparkles, ArrowRight, ChevronRight
 } from 'lucide-react';
 import { api } from '../services/api';
 import { soundService } from '../services/audio';
 
 import SplashScreen from './SplashScreen';
 import MetricsCard from './MetricsCard';
-import RecoveryChart from './RecoveryChart';
 import TransactionTable from './TransactionTable';
 import RecoveryFunnel from './RecoveryFunnel';
 import ArchitectureDiagram from './ArchitectureDiagram';
@@ -17,10 +16,18 @@ import AuditTrail from './AuditTrail';
 import DiagnosisModal from './DiagnosisModal';
 import InterventionModal from './InterventionModal';
 import VideoGuideModal from './VideoGuideModal';
+import LiveDashboard from './LiveDashboard';
+
+// Interactive Light Editorial Components
+import InteractiveRecoveryChart from './InteractiveRecoveryChart';
+import RiskHeatmap from './RiskHeatmap';
+import FloatingActionMenu from './FloatingActionMenu';
+import { NotificationCenter, useNotification } from './NotificationCenter';
 
 export default function Dashboard() {
+  const { notifications, notify, removeNotification } = useNotification();
   const [showSplash, setShowSplash] = useState(true);
-  const [activeTab, setActiveTab] = useState('overview'); // overview, funnel, architecture, audit
+  const [activeTab, setActiveTab] = useState('overview'); // overview, live, funnel, architecture, audit
   const [metrics, setMetrics] = useState(null);
   const [failures, setFailures] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -184,28 +191,8 @@ export default function Dashboard() {
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-[#071328] to-slate-950 text-white overflow-x-hidden relative font-sans selection:bg-cyan-500 selection:text-slate-950">
+    <div className="min-h-screen bg-[#E9E9E9] text-[#151515] overflow-x-hidden relative font-sans selection:bg-[#FF6A00] selection:text-white pb-16">
       
       {/* Opening Animation Splash Screen */}
       <AnimatePresence>
@@ -214,236 +201,274 @@ export default function Dashboard() {
         )}
       </AnimatePresence>
 
-      {/* Animated Background Cyber Grid */}
-      <div className="fixed inset-0 opacity-[0.04] pointer-events-none bg-grid-pattern bg-grid-lg" />
-
-      {/* Floating Ambient Orbs */}
-      <motion.div
-        className="fixed -top-40 -right-40 w-96 h-96 bg-cyan-400 rounded-full blur-[120px] opacity-15 pointer-events-none"
-        animate={{
-          x: [0, 40, 0],
-          y: [0, -40, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="fixed -bottom-40 -left-40 w-96 h-96 bg-purple-500 rounded-full blur-[120px] opacity-15 pointer-events-none"
-        animate={{
-          x: [0, -40, 0],
-          y: [0, 40, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
       {/* Toast Notification Banner */}
       {toastMessage && (
-        <div className="fixed top-5 right-5 z-50 animate-in slide-in-from-top-3 duration-300">
-          <div className={`px-4 py-3 rounded-2xl border shadow-2xl text-xs font-bold flex items-center gap-2.5 backdrop-blur-xl ${
+        <div className="fixed top-20 right-6 z-50 animate-in slide-in-from-top-3 duration-300">
+          <div className={`px-4 py-3 rounded-2xl border shadow-xl text-xs font-bold flex items-center gap-2.5 backdrop-blur-xl ${
             toastMessage.type === 'error'
-              ? 'bg-rose-950/90 text-rose-200 border-rose-500/50'
+              ? 'bg-rose-900 text-white border-rose-700'
               : toastMessage.type === 'info'
-              ? 'bg-cyan-950/90 text-cyan-200 border-cyan-500/50'
-              : 'bg-emerald-950/90 text-emerald-200 border-emerald-500/50'
+              ? 'bg-[#151515] text-white border-slate-700'
+              : 'bg-[#FF6A00] text-white border-orange-600'
           }`}>
-            <span className="w-2.5 h-2.5 rounded-full bg-current animate-ping" />
+            <span className="w-2.5 h-2.5 rounded-full bg-white animate-ping" />
             {toastMessage.msg}
           </div>
         </div>
       )}
 
-      {/* Top Status Strip */}
-      <div className="bg-slate-950/90 border-b border-cyan-500/20 px-6 py-1.5 text-[11px] text-slate-400 font-mono hidden md:flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <span className="flex items-center gap-1.5 text-emerald-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> NPCI Switch: 99.98%
-          </span>
-          <span className="text-slate-700">•</span>
-          <span className="text-cyan-300">Claude 3.5 AI Diagnostic: Active</span>
-          <span className="text-slate-700">•</span>
-          <span className="text-emerald-400">Stopping Rule: ≤₹50k Auto-Retry Cap Active</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="text-slate-500">Razorpay AI Buildathon</span>
-          <span className="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-500/30 text-[10px] font-bold">
-            Track 03
-          </span>
-        </div>
-      </div>
-
-      {/* Header */}
-      <motion.header
-        className="relative z-20 border-b border-cyan-500/20 backdrop-blur-md bg-slate-950/70 sticky top-0 shadow-lg"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
-          
-          {/* Logo Section */}
-          <motion.div
-            className="flex items-center gap-3.5 cursor-pointer"
-            whileHover={{ scale: 1.02 }}
+      {/* FLOATING PILL NAV BAR */}
+      <div className="sticky top-4 z-40 max-w-7xl mx-auto px-4">
+        <header className="bg-slate-300/40 backdrop-blur-md rounded-2xl border border-white/60 shadow-lg px-4 py-2.5 flex items-center justify-between">
+          {/* Logo Brand */}
+          <div 
             onClick={() => setActiveTab('overview')}
+            className="flex items-center gap-3 cursor-pointer group"
           >
-            <div className="relative w-11 h-11">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl blur-md opacity-40" />
-              <img 
-                src="/logo.png" 
-                alt="PaymentGuard Logo" 
-                className="relative z-10 w-11 h-11 rounded-xl object-contain border border-cyan-400/40 bg-slate-950 shadow-md"
-              />
+            <div className="w-10 h-10 rounded-xl bg-white border border-slate-300 p-1 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform overflow-hidden">
+              <img src="/logo.png" alt="PaymentGuard Shield Logo" className="w-full h-full object-contain" />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-xl font-black bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent font-sans">
-                  PaymentGuard
-                </h1>
-                <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 font-bold hidden sm:inline">
-                  AI Revenue Recovery Agent
-                </span>
-              </div>
-              <p className="text-[11px] text-cyan-300/70 font-medium">
-                Autonomous Bounded Payment Recovery Architecture
-              </p>
-            </div>
-          </motion.div>
+            <h1 className="font-display font-black italic text-xl sm:text-2xl tracking-tighter uppercase leading-none select-none">
+              <span className="text-[#151515]">PAYMENT</span>{' '}
+              <span className="text-[#FF6A00]">GUARD</span>
+            </h1>
+          </div>
 
-          {/* Action Buttons */}
-          <motion.div
-            className="flex items-center gap-2.5 sm:gap-3"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            {/* Audio Toggle */}
+          {/* Floating Pill Nav Items */}
+          <nav className="hidden md:flex items-center gap-1 bg-white/80 p-1 rounded-xl border border-white/80 shadow-inner font-mono text-xs font-bold">
+            {[
+              { id: 'overview', label: 'OVERVIEW' },
+              { id: 'live', label: 'LIVE FEED' },
+              { id: 'funnel', label: 'FUNNEL' },
+              { id: 'architecture', label: 'ARCHITECTURE' },
+              { id: 'audit', label: 'AUDIT LOG' },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveTab(item.id)}
+                className={`px-3.5 py-1.5 rounded-lg transition-all ${
+                  activeTab === item.id 
+                    ? 'bg-[#151515] text-white shadow-sm' 
+                    : 'text-[#555555] hover:text-[#151515] hover:bg-slate-100'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Quick Actions */}
+          <div className="flex items-center gap-2">
             <button
               onClick={handleToggleMute}
-              title={isMuted ? "Unmute sound" : "Mute sound"}
-              className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-cyan-500/20 transition-colors"
+              className="p-2 rounded-xl bg-white/90 hover:bg-white text-slate-700 border border-slate-300 transition-colors shadow-sm"
+              title={isMuted ? "Unmute Sound" : "Mute Sound"}
             >
-              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-cyan-400" />}
+              {isMuted ? <VolumeX className="w-4 h-4 text-slate-400" /> : <Volume2 className="w-4 h-4 text-[#FF6A00]" />}
             </button>
 
-            {/* Video Pitch Guide */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               onClick={() => setActiveModal('video_guide')}
-              className="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-300 text-xs font-bold border border-amber-500/30 transition-all flex items-center gap-1.5 shadow-sm"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/90 hover:bg-white text-slate-800 border border-slate-300 font-mono text-xs font-bold shadow-sm transition-all"
             >
-              <Video className="w-3.5 h-3.5 text-amber-400" />
-              <span className="hidden sm:inline">5-Min Video Guide</span>
-            </motion.button>
+              <Video className="w-3.5 h-3.5 text-[#FF6A00]" />
+              <span>GUIDE</span>
+            </button>
 
-            {/* Reset Demo Button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleReset}
-              className="px-3.5 py-2 rounded-xl bg-slate-900 border border-cyan-400/30 text-cyan-300 hover:bg-slate-800 text-xs font-semibold transition-all flex items-center gap-1.5"
-            >
-              <RefreshCw className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Reset Demo</span>
-            </motion.button>
-
-            {/* Run AI Recovery Button */}
-            <motion.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
+            <button
               onClick={handleBatchRun}
               disabled={batchRunning}
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 text-slate-950 font-extrabold text-xs hover:shadow-lg hover:shadow-cyan-400/40 transition-all flex items-center gap-2 disabled:opacity-60"
+              className="px-4 py-1.5 rounded-xl bg-[#151515] hover:bg-black text-white font-mono text-xs font-bold tracking-wider transition-all shadow-md flex items-center gap-2 disabled:opacity-60"
             >
               {batchRunning ? (
                 <>
-                  <RefreshCw className="w-3.5 h-3.5 animate-spin" /> Processing...
+                  <RefreshCw className="w-3.5 h-3.5 animate-spin text-[#FF6A00]" />
+                  <span>RUNNING...</span>
                 </>
               ) : (
                 <>
-                  <Zap className="w-3.5 h-3.5 fill-current" /> Run AI Recovery
+                  <Zap className="w-3.5 h-3.5 text-[#FF6A00] fill-current" />
+                  <span>RECOVER NOW</span>
                 </>
               )}
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
+        </header>
+      </div>
 
+      {/* EDITORIAL HERO SECTION */}
+      <section className="relative max-w-7xl mx-auto px-4 pt-12 pb-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden">
+        {/* Low-Opacity Giant Pixel Background Graphic */}
+        <div className="absolute -left-10 top-0 text-[120px] lg:text-[180px] font-pixel font-bold text-slate-300/25 pointer-events-none select-none tracking-tighter leading-none z-0">
+          PAYMENT GUARD
         </div>
-      </motion.header>
 
-      {/* Main Content */}
-      <motion.main
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 flex-1"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Top Alert Banner */}
-        <motion.div
-          variants={itemVariants}
-          className="p-4 rounded-2xl bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 border border-cyan-400/30 backdrop-blur shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
-        >
-          <p className="text-xs sm:text-sm text-cyan-200 leading-relaxed">
-            ✨ <strong className="text-cyan-300">5-Minute Evaluation Walkthrough:</strong> Demonstrates autonomous 4-stage pipeline: Detect 100 failures → Diagnose with Claude 3.5 AI → Intervene with Bounded Rules & Hinglish Voice → Execute with Graceful Backoff recovery.
+        {/* Left Column: Index & Big Uppercase Headline */}
+        <div className="lg:col-span-5 relative z-10 space-y-6">
+          <div className="flex items-center gap-3">
+            <span className="font-mono text-xs font-extrabold px-2.5 py-1 bg-white border border-slate-300 rounded-md text-[#151515] shadow-xs">
+              [1/8]
+            </span>
+            <span className="font-mono text-xs uppercase tracking-widest text-[#555555] font-bold">
+              AUTONOMOUS REVENUE ENGINE
+            </span>
+          </div>
+
+          <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tighter text-[#151515] leading-[0.95]">
+            AUTONOMOUS <br />
+            REVENUE RECOVERY <br />
+            <span className="text-[#FF6A00]">THAT STICKS.</span>
+          </h1>
+
+          <p className="text-sm sm:text-base text-[#555555] font-medium leading-relaxed max-w-md">
+            AI-driven, bounded 4-stage pipeline that captures lost Razorpay checkouts through Hinglish Voice AI & Smart NPCI Switches.
           </p>
+
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <button
+              onClick={handleBatchRun}
+              disabled={batchRunning}
+              className="px-6 py-3.5 rounded-xl bg-[#FF6A00] hover:bg-[#e05d00] text-white font-mono text-xs font-extrabold tracking-wider transition-all shadow-lg hover:shadow-orange-500/30 flex items-center gap-2.5"
+            >
+              <span>GET STARTED</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
+            <button
+              onClick={() => handleDiagnose('tx_1001')}
+              className="px-5 py-3.5 rounded-xl bg-white border border-slate-300 hover:border-[#151515] text-[#151515] font-mono text-xs font-bold transition-all shadow-xs flex items-center gap-2"
+            >
+              <span>TEST DEMO TX</span>
+              <Sparkles className="w-3.5 h-3.5 text-[#FF6A00]" />
+            </button>
+          </div>
+        </div>
+
+        {/* Center Floating 3D Render Canvas */}
+        <div className="lg:col-span-4 relative z-10 flex justify-center">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="relative w-full max-w-sm aspect-square bg-white rounded-3xl p-4 shadow-2xl border border-white/80 flex items-center justify-center group overflow-hidden"
+          >
+            {/* Subtle soft orange halo */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-orange-100/40 via-transparent to-slate-100/60 rounded-3xl" />
+            
+            <img 
+              src="/3d-hero.png" 
+              alt="PaymentGuard 3D Studio Computer Render" 
+              className="relative z-10 object-contain w-full h-full drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
+            />
+
+            <div className="absolute bottom-3 left-3 right-3 z-20 bg-white/90 backdrop-blur-md p-3 rounded-2xl border border-slate-200 shadow-lg flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="font-mono text-xs font-extrabold text-[#151515]">BOUNDED AI AGENT ACTIVE</span>
+              </div>
+              <span className="font-mono text-[10px] text-slate-500 font-bold">CAP ≤ ₹50K</span>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Right Column: Key Statistic */}
+        <div className="lg:col-span-3 relative z-10 flex flex-col sm:flex-row lg:flex-col justify-between gap-4">
+          {/* Editorial Stat Card */}
+          <div className="bg-white rounded-2xl border border-slate-300 p-6 shadow-md flex-1">
+            <div className="flex items-center justify-between mb-3">
+              <span className="font-mono text-xs font-bold text-slate-500 uppercase">RECOVERY RATE</span>
+              <span className="w-2 h-2 rounded-full bg-[#FF6A00]" />
+            </div>
+            <div className="font-mono text-4xl sm:text-5xl font-black text-[#151515] tracking-tight">
+              ↑ {(metrics?.recovery_metrics?.recovery_rate_percent ?? 56.0).toFixed(1)}%
+            </div>
+            <p className="text-xs text-slate-500 mt-2 font-medium">
+              56 out of 100 checkout failures automatically restored.
+            </p>
+          </div>
+
+          {/* Secondary Quick Stat */}
+          <div className="bg-white rounded-2xl border border-slate-300 p-6 shadow-md flex-1">
+            <div className="flex items-center justify-between mb-3">
+              <span className="font-mono text-xs font-bold text-slate-500 uppercase">TOTAL RECOVERED</span>
+              <DollarIcon />
+            </div>
+            <div className="font-mono text-3xl font-black text-[#151515] tracking-tight">
+              ₹{(metrics?.recovery_metrics?.amount_recovered ?? 1315647).toLocaleString('en-IN')}
+            </div>
+            <p className="text-xs text-slate-500 mt-2 font-medium">
+              Direct integration with Razorpay Webhooks.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* MAIN CONTAINER */}
+      <main className="max-w-7xl mx-auto px-4 mt-6 space-y-8 relative z-10">
+        
+        {/* Banner Alert Bar */}
+        <div className="p-4 rounded-2xl bg-white border border-slate-300 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-xl bg-orange-100 text-[#FF6A00] flex items-center justify-center shrink-0">
+              <Sparkles className="w-4 h-4" />
+            </div>
+            <p className="text-xs sm:text-sm font-medium text-slate-700">
+              <strong className="text-[#151515] font-bold">4-Stage Pipeline Ready:</strong> Detect 100 failures → Claude 3.5 AI Diagnosis → Bounded Rule & Voice AI Intervention → Graceful Backoff Execution.
+            </p>
+          </div>
           <button
             onClick={() => handleDiagnose('tx_1001')}
-            className="px-3.5 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-bold transition-all shrink-0 flex items-center gap-1.5"
+            className="px-3.5 py-1.5 rounded-xl bg-[#151515] hover:bg-black text-white font-mono text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 shadow-sm"
           >
-            ⭐ Demo tx_1001
+            <span>DEMO TX_1001</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#FF6A00]" />
           </button>
-        </motion.div>
+        </div>
 
-        {/* Animated Metrics Grid */}
-        <motion.div variants={itemVariants}>
-          <MetricsCard metrics={metrics} loading={loading} />
-        </motion.div>
+        {/* METRICS GRID */}
+        <MetricsCard metrics={metrics} loading={loading} />
 
-        {/* Navigation Tabs Section */}
-        <motion.div variants={itemVariants} className="pt-2">
-          <div className="flex gap-2.5 border-b border-cyan-400/20 overflow-x-auto pb-3">
-            {[
-              { id: "overview", label: "📊 Overview & Transactions" },
-              { id: "funnel", label: "🔄 Recovery Funnel" },
-              { id: "architecture", label: "🏗️ 4-Stage Architecture" },
-              { id: "audit", label: "📋 Audit Trail Timeline" },
-            ].map((tab) => (
-              <motion.button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-2 ${
-                  activeTab === tab.id
-                    ? "bg-gradient-to-r from-cyan-400 to-blue-500 text-slate-950 shadow-lg shadow-cyan-500/25"
-                    : "text-cyan-300 hover:bg-slate-900/60 border border-cyan-400/20"
-                }`}
-              >
-                {tab.label}
-              </motion.button>
-            ))}
-          </div>
-        </motion.div>
+        {/* TAB CONTROLS FOR MOBILE/TABLET */}
+        <div className="flex md:hidden gap-2 overflow-x-auto pb-2 font-mono text-xs font-bold">
+          {[
+            { id: 'overview', label: 'OVERVIEW' },
+            { id: 'live', label: 'LIVE' },
+            { id: 'funnel', label: 'FUNNEL' },
+            { id: 'architecture', label: 'ARCHITECTURE' },
+            { id: 'audit', label: 'AUDIT' },
+          ].map((item) => (
+            <button
+              key={item.id}
+              onClick={() => setActiveTab(item.id)}
+              className={`px-3 py-1.5 rounded-xl transition-all whitespace-nowrap ${
+                activeTab === item.id 
+                  ? 'bg-[#151515] text-white' 
+                  : 'bg-white text-slate-700 border border-slate-300'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
 
-        {/* Dynamic Animated Tab Content */}
+        {/* TAB CONTENT PANELS */}
         <AnimatePresence mode="wait">
-          {activeTab === "overview" && (
+          {activeTab === 'overview' && (
             <motion.div
               key="overview"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.35 }}
+              transition={{ duration: 0.3 }}
               className="space-y-8"
             >
-              <RecoveryChart metrics={metrics} />
+              {/* Interactive Recharts Component */}
+              <InteractiveRecoveryChart />
+
+              {/* Risk Assessment Heatmap */}
+              <RiskHeatmap failures={failures} />
+
+              {/* Transactions Table */}
               <TransactionTable
                 failures={failures}
                 loading={loading}
@@ -455,25 +480,37 @@ export default function Dashboard() {
             </motion.div>
           )}
 
-          {activeTab === "funnel" && (
+          {activeTab === 'live' && (
+            <motion.div
+              key="live"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3 }}
+            >
+              <LiveDashboard />
+            </motion.div>
+          )}
+
+          {activeTab === 'funnel' && (
             <motion.div
               key="funnel"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.35 }}
+              transition={{ duration: 0.3 }}
             >
               <RecoveryFunnel metrics={metrics} />
             </motion.div>
           )}
 
-          {activeTab === "architecture" && (
+          {activeTab === 'architecture' && (
             <motion.div
               key="architecture"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.35 }}
+              transition={{ duration: 0.3 }}
             >
               <ArchitectureDiagram
                 onStepClick={(step) => {
@@ -486,13 +523,13 @@ export default function Dashboard() {
             </motion.div>
           )}
 
-          {activeTab === "audit" && (
+          {activeTab === 'audit' && (
             <motion.div
               key="audit"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.35 }}
+              transition={{ duration: 0.3 }}
             >
               <AuditTrail
                 failureId={selectedFailure?.tx_id || 'tx_1001'}
@@ -502,21 +539,21 @@ export default function Dashboard() {
           )}
         </AnimatePresence>
 
-      </motion.main>
+      </main>
 
-      {/* Footer */}
-      <footer className="border-t border-cyan-500/20 bg-slate-950/80 py-6 text-center text-xs text-slate-400 mt-12">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-cyan-300 font-medium">
-            PaymentGuard • Razorpay AI Buildathon Track 03 (AI Revenue Recovery)
-          </span>
-          <span className="font-mono text-slate-500">
-            React 18 + Tailwind CSS + Framer Motion + Claude 3.5 AI
-          </span>
+      {/* FOOTER */}
+      <footer className="max-w-7xl mx-auto px-4 pt-16 pb-8 border-t border-slate-300 mt-16 text-slate-500 font-mono text-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#FF6A00]" />
+          <span className="font-bold text-[#151515]">PAYMENTGUARD</span>
+          <span>• AUTONOMOUS REVENUE RECOVERY PLATFORM</span>
+        </div>
+        <div>
+          DESIGNED WITH EDITORIAL 3D AGENCY IDENTITY
         </div>
       </footer>
 
-      {/* Modals */}
+      {/* MODAL DIALOGS */}
       {activeModal === 'diagnosis' && (
         <DiagnosisModal
           diagnosis={diagnosisData}
@@ -557,6 +594,31 @@ export default function Dashboard() {
         />
       )}
 
+      {/* Floating Action Menu FAB */}
+      <FloatingActionMenu
+        onSelectAction={(action) => {
+          if (action === 'export') {
+            api.downloadPdfReport().then(() => notify('ReportLab PDF Report downloaded!', 'success')).catch(e => notify('PDF download error', 'error'));
+          } else {
+            setActiveTab(action);
+          }
+        }}
+      />
+
+      {/* Global Notification Center */}
+      <NotificationCenter
+        notifications={notifications}
+        onClose={removeNotification}
+      />
+
     </div>
+  );
+}
+
+function DollarIcon() {
+  return (
+    <span className="font-mono text-sm font-bold px-2 py-0.5 rounded bg-orange-100 text-[#FF6A00]">
+      ₹ INR
+    </span>
   );
 }

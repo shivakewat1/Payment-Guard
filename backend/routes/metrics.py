@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, Response
 from sqlalchemy.orm import Session
 from datetime import datetime
 from typing import Optional
@@ -8,6 +8,7 @@ from backend.models.schemas import (
     MetricsReport, InputMetrics, ProcessingMetrics,
     RecoveryMetrics, QualityMetrics, ExceptionHandlingMetrics, ComplianceMetrics
 )
+from backend.utils.pdf_report import generate_pdf_report
 
 router = APIRouter(prefix="/api", tags=["Step 5: Metrics & Reporting"])
 
@@ -101,3 +102,32 @@ def get_metrics_report(
             bounded_workflow_enforced=True
         )
     )
+
+@router.get("/metrics/pdf")
+@router.get("/report/pdf")
+def get_pdf_report(
+    db: Session = Depends(get_db)
+):
+    """
+    Generates and returns a downloadable ReportLab PDF recovery report.
+    100% Free, offline, no third-party APIs needed!
+    """
+    report = get_metrics_report(batch_id=None, db=db)
+    metrics_data = {
+        'recovered': report.recovery_metrics.payments_recovered,
+        'amount': report.recovery_metrics.amount_recovered,
+        'rate': report.recovery_metrics.recovery_rate_percent,
+        'total': report.input_metrics.total_failures_detected,
+        'batch_id': report.batch_id
+    }
+    
+    pdf_bytes = generate_pdf_report(metrics_data)
+    
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": "attachment; filename=PaymentGuard_Recovery_Report.pdf"
+        }
+    )
+

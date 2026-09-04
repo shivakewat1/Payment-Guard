@@ -12,7 +12,8 @@ from backend.routes import (
     execute_router,
     metrics_router,
     audit_router,
-    batch_router
+    batch_router,
+    recovery_ws_router
 )
 from backend.agents.detector import FailureDetector
 from backend.utils.logger import logger
@@ -67,6 +68,7 @@ app.include_router(execute_router)
 app.include_router(metrics_router)
 app.include_router(audit_router)
 app.include_router(batch_router)
+app.include_router(recovery_ws_router)
 
 @app.get("/")
 def root():

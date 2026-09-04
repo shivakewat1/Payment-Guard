@@ -109,5 +109,20 @@ export const api = {
     });
     if (!res.ok) throw new Error(`Reset failed: ${res.statusText}`);
     return res.json();
+  },
+
+  async downloadPdfReport() {
+    const res = await robustFetch('/api/metrics/pdf');
+    if (!res.ok) throw new Error(`PDF report download failed: ${res.statusText}`);
+    const blob = await res.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'PaymentGuard_Recovery_Report.pdf';
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
   }
 };
+

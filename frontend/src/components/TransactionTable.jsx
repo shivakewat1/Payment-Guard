@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
-  Search, Filter, Brain, Zap, Play, FileText, CheckCircle2, 
-  XCircle, AlertTriangle, ShieldCheck, RefreshCw, Download, 
-  CheckSquare, Square, ChevronRight, Sparkles 
+  Search, Download, CheckSquare, Square, Zap, Brain, Play, FileText, 
+  RefreshCw, ChevronRight, ShieldAlert, Sparkles, Filter
 } from 'lucide-react';
 
 export default function TransactionTable({
@@ -18,7 +17,6 @@ export default function TransactionTable({
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
   const [selectedTxIds, setSelectedTxIds] = useState(new Set());
-  const [hoveredRow, setHoveredRow] = useState(null);
   const [bulkExecuting, setBulkExecuting] = useState(false);
 
   const filtered = failures.filter(f => {
@@ -84,87 +82,80 @@ export default function TransactionTable({
     document.body.removeChild(link);
   };
 
-  const getRiskColor = (risk) => {
-    if (risk >= 80) return "bg-red-500/20 text-red-400 border-red-400/50";
-    if (risk >= 60) return "bg-orange-500/20 text-orange-400 border-orange-400/50";
-    return "bg-cyan-500/20 text-cyan-300 border-cyan-400/50";
+  const getRiskBadge = (risk) => {
+    if (risk >= 80) return "bg-rose-100 text-rose-700 border-rose-300";
+    if (risk >= 60) return "bg-orange-100 text-[#FF6A00] border-orange-300";
+    return "bg-slate-100 text-slate-700 border-slate-300";
   };
 
-  const getStatusColor = (status) => {
-    if (status === 'recovered') return 'text-emerald-400';
-    if (status === 'failed') return 'text-rose-400';
-    if (status === 'processing') return 'text-cyan-400 animate-pulse';
-    return 'text-slate-400';
-  };
-
-  const rowVariants = {
-    hidden: { opacity: 0, x: -15 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.25 } },
-    hover: { backgroundColor: "rgba(34, 211, 238, 0.08)" },
+  const getStatusBadge = (status) => {
+    if (status === 'recovered') return 'bg-emerald-100 text-emerald-800 border-emerald-300';
+    if (status === 'failed') return 'bg-rose-100 text-rose-800 border-rose-300';
+    return 'bg-amber-100 text-amber-800 border-amber-300';
   };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="rounded-2xl border border-cyan-400/30 bg-gradient-to-br from-slate-900/70 to-slate-950/80 backdrop-blur shadow-2xl overflow-hidden"
+      transition={{ duration: 0.5 }}
+      className="bg-white rounded-3xl border border-slate-300 shadow-md overflow-hidden"
     >
       {/* Table Header Controls */}
-      <div className="p-5 border-b border-cyan-400/20 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-950/50">
+      <div className="p-6 border-b border-slate-200 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-50/50">
         <div>
-          <div className="flex items-center gap-2.5">
-            <h2 className="text-lg font-bold text-cyan-300 flex items-center gap-2">
-              Failed Transactions Queue
+          <div className="flex items-center gap-3">
+            <h2 className="font-display font-black text-xl text-[#151515] uppercase tracking-tight">
+              FAILED TRANSACTIONS QUEUE
             </h2>
-            <span className="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950/60 text-cyan-400 border border-cyan-500/30 font-mono font-bold">
-              {filtered.length} Ingested
+            <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-[#151515] text-white">
+              {filtered.length} INGESTED
             </span>
           </div>
-          <p className="text-xs text-slate-400 mt-0.5">
-            Prioritized by autonomous capital risk scoring (0-100)
+          <p className="text-xs text-slate-500 font-medium mt-1">
+            Prioritized by autonomous capital risk scoring (0-100) & NPCI fail rates
           </p>
         </div>
 
         {/* Filter Toolbar */}
         <div className="flex flex-wrap items-center gap-2.5">
-          <div className="relative min-w-[200px]">
-            <Search className="w-4 h-4 text-cyan-400 absolute left-3 top-1/2 -translate-y-1/2" />
+          <div className="relative min-w-[220px]">
+            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search by ID, name..."
+              placeholder="Search TX ID, customer..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-3 py-1.5 bg-slate-900/90 border border-cyan-500/30 rounded-xl text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+              className="w-full pl-9 pr-3 py-2 bg-white border border-slate-300 rounded-xl text-xs font-medium text-[#151515] placeholder-slate-400 focus:outline-none focus:border-[#FF6A00] transition-all shadow-xs"
             />
           </div>
 
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="px-3 py-1.5 bg-slate-900/90 border border-cyan-500/30 rounded-xl text-xs text-cyan-300 focus:outline-none focus:border-cyan-400 cursor-pointer"
+            className="px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs font-mono font-bold text-[#151515] focus:outline-none focus:border-[#FF6A00] cursor-pointer shadow-xs"
           >
-            <option value="all">All Categories</option>
-            <option value="network">Network Disruption</option>
-            <option value="issuer">Issuer Bank Decline</option>
-            <option value="merchant">Merchant Config Error</option>
+            <option value="all">ALL CATEGORIES</option>
+            <option value="network">NETWORK DISRUPTION</option>
+            <option value="issuer">ISSUER BANK DECLINE</option>
+            <option value="merchant">MERCHANT CONFIG</option>
           </select>
 
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-1.5 bg-slate-900/90 border border-cyan-500/30 rounded-xl text-xs text-cyan-300 focus:outline-none focus:border-cyan-400 cursor-pointer"
+            className="px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs font-mono font-bold text-[#151515] focus:outline-none focus:border-[#FF6A00] cursor-pointer shadow-xs"
           >
-            <option value="all">All Statuses</option>
-            <option value="detected">Detected</option>
-            <option value="recovered">Recovered</option>
-            <option value="failed">Failed</option>
+            <option value="all">ALL STATUSES</option>
+            <option value="detected">DETECTED</option>
+            <option value="recovered">RECOVERED</option>
+            <option value="failed">FAILED</option>
           </select>
 
           <button
             onClick={handleExportCSV}
             title="Download CSV report"
-            className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-cyan-300 border border-cyan-500/30 transition-colors"
+            className="p-2 rounded-xl bg-white hover:bg-slate-100 text-[#151515] border border-slate-300 shadow-xs transition-colors"
           >
             <Download className="w-4 h-4" />
           </button>
@@ -175,14 +166,14 @@ export default function TransactionTable({
       <div className="overflow-x-auto max-h-[600px] overflow-y-auto">
         <table className="w-full text-left">
           <thead>
-            <tr className="border-b border-cyan-400/15 bg-slate-950/80 text-[11px] font-bold text-cyan-300 uppercase tracking-wider sticky top-0 z-10 backdrop-blur-md">
+            <tr className="border-b border-slate-200 bg-slate-100/70 font-mono text-[11px] font-extrabold text-slate-600 uppercase tracking-wider sticky top-0 z-10 backdrop-blur-sm">
               <th className="py-3.5 px-4 w-10">
                 <button
                   onClick={handleSelectAll}
-                  className="text-slate-400 hover:text-cyan-300 transition-colors"
+                  className="text-slate-500 hover:text-[#151515] transition-colors"
                 >
                   {selectedTxIds.size > 0 && selectedTxIds.size === filtered.length ? (
-                    <CheckSquare className="w-4 h-4 text-cyan-400" />
+                    <CheckSquare className="w-4 h-4 text-[#FF6A00]" />
                   ) : (
                     <Square className="w-4 h-4" />
                   )}
@@ -197,18 +188,18 @@ export default function TransactionTable({
               <th className="px-5 py-3.5 text-right">ACTIONS</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-cyan-400/10 text-xs">
+          <tbody className="divide-y divide-slate-200 text-xs">
             {loading ? (
               <tr>
-                <td colSpan="8" className="py-16 text-center text-slate-400 space-y-3">
-                  <div className="w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin mx-auto" />
-                  <p className="font-medium text-cyan-300">Synchronizing transaction queue...</p>
+                <td colSpan="8" className="py-16 text-center text-slate-500 space-y-3">
+                  <RefreshCw className="w-7 h-7 text-[#FF6A00] animate-spin mx-auto" />
+                  <p className="font-mono text-xs font-bold text-[#151515]">SYNCHRONIZING QUEUE...</p>
                 </td>
               </tr>
             ) : filtered.length === 0 ? (
               <tr>
-                <td colSpan="8" className="py-16 text-center text-slate-400">
-                  <p className="text-sm font-semibold text-slate-300">No matching failed payments found</p>
+                <td colSpan="8" className="py-16 text-center text-slate-500">
+                  <p className="font-mono text-xs font-bold text-slate-600">NO MATCHING FAILED PAYMENTS FOUND</p>
                 </td>
               </tr>
             ) : (
@@ -216,31 +207,24 @@ export default function TransactionTable({
                 const isSelected = selectedTxIds.has(tx.tx_id);
                 const isSpecial = tx.is_test_special;
                 return (
-                  <motion.tr
+                  <tr
                     key={tx.tx_id}
-                    variants={rowVariants}
-                    initial="hidden"
-                    animate="visible"
-                    whileHover="hover"
-                    transition={{ delay: idx * 0.02 }}
-                    onMouseEnter={() => setHoveredRow(tx.tx_id)}
-                    onMouseLeave={() => setHoveredRow(null)}
-                    className={`transition-colors group ${
+                    className={`transition-colors hover:bg-slate-50 ${
                       isSelected
-                        ? 'bg-cyan-950/40 border-l-4 border-l-cyan-400'
+                        ? 'bg-orange-50/70 border-l-4 border-l-[#FF6A00]'
                         : isSpecial
-                        ? 'bg-amber-950/20 border-l-4 border-l-amber-500'
+                        ? 'bg-amber-50/60 border-l-4 border-l-amber-500'
                         : ''
                     }`}
                   >
                     {/* Checkbox */}
-                    <td className="py-3 px-4">
+                    <td className="py-3.5 px-4">
                       <button
                         onClick={() => handleToggleSelect(tx.tx_id)}
-                        className="text-slate-500 group-hover:text-cyan-400 transition-colors"
+                        className="text-slate-400 hover:text-[#FF6A00] transition-colors"
                       >
                         {isSelected ? (
-                          <CheckSquare className="w-4 h-4 text-cyan-400" />
+                          <CheckSquare className="w-4 h-4 text-[#FF6A00]" />
                         ) : (
                           <Square className="w-4 h-4" />
                         )}
@@ -251,60 +235,51 @@ export default function TransactionTable({
                     <td className="px-5 py-3.5">
                       <div className="space-y-0.5">
                         <div className="flex items-center gap-2">
-                          <span className="font-mono text-cyan-400 font-bold">{tx.tx_id}</span>
+                          <span className="font-mono font-bold text-[#151515]">{tx.tx_id}</span>
                           {isSpecial && (
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold">
-                              ⭐ Demo
+                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold border border-amber-300">
+                              ⭐ DEMO
                             </span>
                           )}
                         </div>
-                        <p className="text-slate-400 text-xs truncate max-w-[160px]">
+                        <p className="text-slate-500 text-xs truncate max-w-[160px] font-medium">
                           {tx.customer_name || 'Guest Customer'}
                         </p>
                       </div>
                     </td>
 
                     {/* Amount */}
-                    <td className="px-5 py-3.5 font-bold text-white font-mono text-sm">
+                    <td className="px-5 py-3.5 font-mono font-black text-sm text-[#151515]">
                       ₹{tx.amount?.toLocaleString('en-IN')}
                     </td>
 
                     {/* Failure Reason */}
                     <td className="px-5 py-3.5 max-w-[200px]">
-                      <span className="text-orange-400 text-xs font-mono block truncate">
+                      <span className="text-[#FF6A00] font-mono text-xs font-bold uppercase block truncate">
                         {tx.reason?.replace(/_/g, " ")}
                       </span>
-                      <span className="text-[10px] text-slate-500 block truncate">
-                        {tx.reason_description || 'Bank gateway dropped'}
+                      <span className="text-[10px] text-slate-500 block truncate font-medium">
+                        {tx.reason_description || 'Bank gateway dropped connection'}
                       </span>
                     </td>
 
                     {/* Category */}
                     <td className="px-5 py-3.5">
-                      <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase bg-slate-800 text-cyan-300 border border-cyan-500/30">
+                      <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-extrabold uppercase bg-slate-100 text-slate-800 border border-slate-300">
                         {tx.failure_category}
                       </span>
                     </td>
 
                     {/* Risk Score */}
                     <td className="px-5 py-3.5">
-                      <motion.div
-                        className={`w-9 h-9 rounded-xl border flex items-center justify-center font-mono font-bold text-xs ${getRiskColor(tx.risk_score)}`}
-                        whileHover={{ scale: 1.15 }}
-                      >
+                      <span className={`px-2.5 py-1 rounded-md font-mono font-bold text-xs border ${getRiskBadge(tx.risk_score)}`}>
                         {tx.risk_score}
-                      </motion.div>
+                      </span>
                     </td>
 
                     {/* Status */}
                     <td className="px-5 py-3.5">
-                      <span className={`flex items-center gap-2 text-xs font-bold capitalize ${getStatusColor(tx.status)}`}>
-                        <span
-                          className="w-2 h-2 rounded-full animate-pulse"
-                          style={{
-                            backgroundColor: tx.status === "recovered" ? "#10b981" : tx.status === "failed" ? "#ef4444" : "#22d3ee",
-                          }}
-                        />
+                      <span className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-extrabold uppercase border ${getStatusBadge(tx.status)}`}>
                         {tx.status}
                       </span>
                     </td>
@@ -313,52 +288,44 @@ export default function TransactionTable({
                     <td className="px-5 py-3.5 text-right">
                       <div className="flex items-center justify-end gap-1.5">
                         {/* Diagnose */}
-                        <motion.button
-                          whileHover={{ scale: 1.15 }}
-                          whileTap={{ scale: 0.9 }}
+                        <button
                           onClick={() => onDiagnose && onDiagnose(tx.tx_id)}
                           title="Step 2: Claude AI Diagnosis"
-                          className="p-1.5 rounded-lg bg-slate-900 hover:bg-purple-950 text-purple-400 border border-purple-500/30"
+                          className="p-2 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 border border-purple-200 transition-all"
                         >
                           <Brain className="w-3.5 h-3.5" />
-                        </motion.button>
+                        </button>
 
                         {/* Intervene */}
-                        <motion.button
-                          whileHover={{ scale: 1.15 }}
-                          whileTap={{ scale: 0.9 }}
+                        <button
                           onClick={() => onIntervene && onIntervene(tx.tx_id)}
                           title="Step 3: Bounded Decision Engine"
-                          className="p-1.5 rounded-lg bg-slate-900 hover:bg-amber-950 text-amber-400 border border-amber-500/30"
+                          className="p-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 transition-all"
                         >
                           <Zap className="w-3.5 h-3.5" />
-                        </motion.button>
+                        </button>
 
                         {/* Recover */}
-                        <motion.button
-                          whileHover={{ scale: 1.15 }}
-                          whileTap={{ scale: 0.9 }}
+                        <button
                           onClick={() => onExecute && onExecute(tx.tx_id)}
                           title="Step 4: Execute Recovery"
-                          className="px-2.5 py-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-[11px] shadow-sm flex items-center gap-1"
+                          className="px-3 py-1.5 rounded-xl bg-[#151515] hover:bg-black text-white font-mono font-extrabold text-xs shadow-sm flex items-center gap-1 transition-all"
                         >
-                          <Play className="w-3 h-3 fill-current" />
-                          <span>Save</span>
-                        </motion.button>
+                          <Play className="w-3 h-3 text-[#FF6A00] fill-current" />
+                          <span>SAVE</span>
+                        </button>
 
                         {/* Audit */}
-                        <motion.button
-                          whileHover={{ scale: 1.15 }}
-                          whileTap={{ scale: 0.9 }}
+                        <button
                           onClick={() => onViewAudit && onViewAudit(tx.tx_id)}
                           title="View Audit Trail"
-                          className="p-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 border border-slate-800"
+                          className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 transition-all"
                         >
                           <FileText className="w-3.5 h-3.5" />
-                        </motion.button>
+                        </button>
                       </div>
                     </td>
-                  </motion.tr>
+                  </tr>
                 );
               })
             )}
@@ -368,24 +335,24 @@ export default function TransactionTable({
 
       {/* Floating Bulk Execution Toolbar */}
       {selectedTxIds.size > 0 && (
-        <div className="p-3.5 bg-slate-900/95 border-t border-cyan-400/40 flex items-center justify-between px-6 backdrop-blur-md">
-          <div className="text-xs font-bold text-cyan-300">
-            {selectedTxIds.size} transactions selected
+        <div className="p-4 bg-[#151515] text-white border-t border-slate-700 flex items-center justify-between px-6">
+          <div className="font-mono text-xs font-bold">
+            {selectedTxIds.size} TRANSACTIONS SELECTED
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setSelectedTxIds(new Set())}
-              className="px-3 py-1.5 bg-slate-800 text-slate-300 rounded-xl text-xs"
+              className="px-3 py-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700 rounded-xl font-mono text-xs"
             >
-              Clear
+              CLEAR
             </button>
             <button
               onClick={handleBulkExecute}
               disabled={bulkExecuting}
-              className="px-4 py-1.5 bg-gradient-to-r from-cyan-400 to-blue-400 text-slate-900 rounded-xl text-xs font-bold shadow-lg flex items-center gap-1.5"
+              className="px-4 py-1.5 bg-[#FF6A00] hover:bg-[#e05d00] text-white font-mono text-xs font-bold rounded-xl shadow-md flex items-center gap-2"
             >
               {bulkExecuting ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Zap className="w-3.5 h-3.5 fill-current" />}
-              Recover Selected ({selectedTxIds.size})
+              <span>RECOVER ({selectedTxIds.size})</span>
             </button>
           </div>
         </div>

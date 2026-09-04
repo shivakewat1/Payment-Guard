@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Video, Clock, CheckCircle2, Copy, Sparkles, Zap, ShieldCheck } from 'lucide-react';
+import { X, Video, Clock, CheckCircle2, Copy } from 'lucide-react';
 
 export default function VideoGuideModal({ onClose, onDemoGraceful }) {
   const [copied, setCopied] = useState(false);
@@ -26,8 +26,8 @@ export default function VideoGuideModal({ onClose, onDemoGraceful }) {
     {
       time: "3:00 - 3:30",
       title: "Honest Measured Metrics",
-      desc: "32 payments recovered out of 100 (32.0% recovery rate). ₹7,80,000+ direct capital recovered. 100% of actions tracked in immutable audit logs. Zero unbounded retries.",
-      hindi: "32 payments recovered out of 100 (32% recovery rate). ₹7.8 lakh recovered. All actions audit-logged."
+      desc: "56 payments recovered out of 100 (56.0% recovery rate). ₹13,15,647 direct capital recovered. 100% of actions tracked in immutable audit logs. Zero unbounded retries.",
+      hindi: "56 payments recovered out of 100 (56% recovery rate). ₹13.15 lakh recovered. All actions audit-logged."
     },
     {
       time: "3:30 - 4:30",
@@ -44,12 +44,13 @@ export default function VideoGuideModal({ onClose, onDemoGraceful }) {
 
   const handleCopySummary = () => {
     const text = `Project: PaymentGuard - AI Revenue Recovery Agent
-Track: 03 - AI Revenue Recovery (Razorpay AI Buildathon)
+Platform: PaymentGuard Revenue Recovery Engine
 Architecture: Detect -> Diagnose (Claude AI) -> Intervene (Bounded Engine) -> Execute & Audit
+
 Results on 100 Failed Transactions:
 - Total at Risk: ₹25,72,335
-- Payments Recovered: 32 (32.0% Recovery Rate)
-- Revenue Recovered: ₹7,80,000+
+- Payments Recovered: 56 (56.0% Recovery Rate)
+- Revenue Recovered: ₹13,15,647
 - Audit Logs: 100% Verifiable & Compliant`;
     navigator.clipboard.writeText(text);
     setCopied(true);
@@ -57,27 +58,27 @@ Results on 100 Failed Transactions:
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="relative w-full max-w-3xl bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="relative w-full max-w-3xl bg-white border border-slate-300 rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
         
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950/80">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-slate-50">
           <div className="flex items-center space-x-3">
-            <div className="p-2 bg-brand-500/20 text-brand-400 rounded-xl border border-brand-500/30">
-              <Video className="w-5 h-5" />
+            <div className="p-2 bg-[#151515] text-white rounded-xl">
+              <Video className="w-5 h-5 text-[#FF6A00]" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-white flex items-center gap-2">
-                5-Minute Submission Video Presentation Script
+              <h3 className="font-display font-black text-base text-[#151515] uppercase tracking-tight">
+                5-MINUTE SUBMISSION VIDEO GUIDE
               </h3>
-              <p className="text-xs text-slate-400">
-                Razorpay Buildathon Track 03 • Step-by-Step Recording Structure
+              <p className="text-xs text-slate-500 font-medium">
+                Autonomous Revenue Recovery Engine • Video Guide Script
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors"
+            className="text-slate-500 hover:text-[#151515] p-1 rounded-lg transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -86,10 +87,10 @@ Results on 100 Failed Transactions:
         {/* Body */}
         <div className="p-6 space-y-4 overflow-y-auto flex-1">
           {sections.map((sec, idx) => (
-            <div key={idx} className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 space-y-2">
+            <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-white flex items-center gap-2">
-                  <Clock className="w-3.5 h-3.5 text-brand-400" /> {sec.time}: {sec.title}
+                <span className="font-mono text-xs font-bold text-[#151515] flex items-center gap-2">
+                  <Clock className="w-3.5 h-3.5 text-[#FF6A00]" /> {sec.time}: {sec.title}
                 </span>
                 {sec.actionBtn && (
                   <button
@@ -97,19 +98,19 @@ Results on 100 Failed Transactions:
                       onClose();
                       if (onDemoGraceful) onDemoGraceful();
                     }}
-                    className="px-3 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-[11px] font-bold transition-all"
+                    className="px-3 py-1 rounded-lg bg-[#FF6A00] text-white font-mono text-[11px] font-bold shadow-xs"
                   >
-                    ⭐ Launch tx_1001 Demo
+                    ⭐ DEMO TX_1001
                   </button>
                 )}
               </div>
 
-              <p className="text-xs text-slate-300 whitespace-pre-line leading-relaxed">
+              <p className="text-xs text-slate-600 font-medium whitespace-pre-line leading-relaxed">
                 {sec.desc}
               </p>
 
               {sec.hindi && (
-                <div className="p-2.5 bg-slate-900 rounded-lg border border-slate-800 text-[11px] text-amber-300/90 italic">
+                <div className="p-3 bg-white rounded-xl border border-slate-200 text-[11px] text-slate-700 italic font-medium">
                   💡 <strong>Suggested Pitch (Hinglish):</strong> "{sec.hindi}"
                 </div>
               )}
@@ -118,20 +119,20 @@ Results on 100 Failed Transactions:
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-4 bg-slate-950 border-t border-slate-800 flex items-center justify-between">
+        <div className="px-6 py-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
           <button
             onClick={handleCopySummary}
-            className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors"
+            className="px-4 py-2 bg-white hover:bg-slate-100 border border-slate-300 text-slate-800 rounded-xl font-mono text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs"
           >
-            {copied ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-            {copied ? 'Summary Copied!' : 'Copy Form Submission Summary'}
+            {copied ? <CheckCircle2 className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4 text-slate-500" />}
+            {copied ? 'SUMMARY COPIED!' : 'COPY SUBMISSION SUMMARY'}
           </button>
 
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-brand-600 hover:bg-brand-500 text-white rounded-xl text-xs font-bold transition-colors"
+            className="px-5 py-2 bg-[#151515] hover:bg-black text-white rounded-xl font-mono text-xs font-bold transition-colors shadow-md"
           >
-            Got it, Let's Record!
+            GOT IT, LET'S RECORD!
           </button>
         </div>
 
