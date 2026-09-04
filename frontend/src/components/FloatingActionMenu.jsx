@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Radio, FileText, LayoutDashboard, Filter, Plus, ChevronRight } from 'lucide-react';
+import { Radio, FileText, LayoutDashboard, Filter, Plus, ChevronRight, TrendingUp, DollarSign, ShieldCheck } from 'lucide-react';
 
 export default function FloatingActionMenu({ onSelectAction }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
+    { icon: <TrendingUp className="w-4 h-4 text-[#FF6A00]" />, label: 'ROI Calculator', action: 'revenue' },
+    { icon: <DollarSign className="w-4 h-4 text-[#FF6A00]" />, label: 'Pricing Plans', action: 'pricing' },
+    { icon: <ShieldCheck className="w-4 h-4 text-[#FF6A00]" />, label: 'Vs Competitors', action: 'compare' },
     { icon: <Radio className="w-4 h-4 text-[#FF6A00] animate-pulse" />, label: 'Live Pipeline', action: 'live' },
     { icon: <FileText className="w-4 h-4 text-[#FF6A00]" />, label: 'Export PDF', action: 'export' },
     { icon: <LayoutDashboard className="w-4 h-4 text-white" />, label: 'Overview', action: 'overview' },

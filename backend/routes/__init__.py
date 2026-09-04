@@ -7,6 +7,7 @@ from .metrics import router as metrics_router
 from .audit import router as audit_router
 from .batch import router as batch_router
 from .recovery_ws import router as recovery_ws_router
+from .revenue import router as revenue_router
 
 __all__ = [
     "detect_router",
@@ -16,6 +17,7 @@ __all__ = [
     "metrics_router",
     "audit_router",
     "batch_router",
-    "recovery_ws_router"
+    "recovery_ws_router",
+    "revenue_router"
 ]
 

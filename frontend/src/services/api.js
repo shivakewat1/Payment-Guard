@@ -123,6 +123,40 @@ export const api = {
     a.click();
     window.URL.revokeObjectURL(url);
     document.body.removeChild(a);
+  },
+
+  async fetchRevenueImpact(failures = 100) {
+    const res = await robustFetch(`/api/revenue/impact?failures=${failures}`);
+    if (!res.ok) throw new Error(`Revenue impact fetch failed: ${res.statusText}`);
+    return res.json();
+  },
+
+  async fetchMonthlyImpact(failures = 100) {
+    const res = await robustFetch(`/api/revenue/monthly?failures=${failures}`);
+    if (!res.ok) throw new Error(`Monthly revenue impact fetch failed: ${res.statusText}`);
+    return res.json();
+  },
+
+  async fetchYearlyImpact(failures = 100) {
+    const res = await robustFetch(`/api/revenue/yearly?failures=${failures}`);
+    if (!res.ok) throw new Error(`Yearly revenue impact fetch failed: ${res.statusText}`);
+    return res.json();
+  },
+
+  async fetchMerchantImpact(merchantData) {
+    const res = await robustFetch('/api/revenue/merchant-impact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(merchantData)
+    });
+    if (!res.ok) throw new Error(`Merchant impact fetch failed: ${res.statusText}`);
+    return res.json();
+  },
+
+  async fetchRoi(failures = 100) {
+    const res = await robustFetch(`/api/revenue/roi?failures=${failures}`);
+    if (!res.ok) throw new Error(`ROI fetch failed: ${res.statusText}`);
+    return res.json();
   }
 };
 
