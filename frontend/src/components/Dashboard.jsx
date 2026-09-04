@@ -136,8 +136,10 @@ export default function Dashboard() {
       const res = await api.executeIntervention(interventionId);
       if (res.status === 'success') {
         showToast(`Payment of ₹${res.money_recovered.toLocaleString('en-IN')} recovered!`, 'success');
+      } else if (res.action === 'MANUAL_ESCALATION') {
+        showToast(`Transaction ${res.failure_id || identifier}: Escalated to Merchant Support (Ticket logged)`, 'info');
       } else {
-        showToast(`Intervention executed. Status: ${res.status}`, 'info');
+        showToast(`Transaction ${res.failure_id || identifier}: Auto-retry completed. Status: Unrecoverable`, 'info');
       }
 
       setActiveModal(null);
@@ -200,21 +202,7 @@ export default function Dashboard() {
         )}
       </AnimatePresence>
 
-      {/* Toast Notification Banner */}
-      {toastMessage && (
-        <div className="fixed top-20 right-6 z-50 animate-in slide-in-from-top-3 duration-300">
-          <div className={`px-4 py-3 rounded-2xl border shadow-xl text-xs font-bold flex items-center gap-2.5 backdrop-blur-xl ${
-            toastMessage.type === 'error'
-              ? 'bg-rose-900 text-white border-rose-700'
-              : toastMessage.type === 'info'
-              ? 'bg-[#151515] text-white border-slate-700'
-              : 'bg-[#FF6A00] text-white border-orange-600'
-          }`}>
-            <span className="w-2.5 h-2.5 rounded-full bg-white animate-ping" />
-            {toastMessage.msg}
-          </div>
-        </div>
-      )}
+
 
       {/* FLOATING PILL NAV BAR */}
       <div className="sticky top-4 z-40 max-w-7xl mx-auto px-4">
@@ -395,7 +383,7 @@ export default function Dashboard() {
               ↑ {(metrics?.recovery_metrics?.recovery_rate_percent ?? 56.0).toFixed(1)}%
             </div>
             <p className="text-xs text-slate-500 mt-2 font-medium">
-              56 out of 100 checkout failures automatically restored.
+              {metrics?.recovery_metrics?.payments_recovered ?? 56} out of {metrics?.input_metrics?.total_failures_detected ?? 100} checkout failures automatically restored.
             </p>
           </div>
 
@@ -475,7 +463,7 @@ export default function Dashboard() {
               className="space-y-8"
             >
               {/* Interactive Recharts Component */}
-              <InteractiveRecoveryChart />
+              <InteractiveRecoveryChart metrics={metrics} />
 
               {/* Risk Assessment Heatmap */}
               <RiskHeatmap failures={failures} />

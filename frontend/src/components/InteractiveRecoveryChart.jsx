@@ -12,9 +12,13 @@ const defaultData = [
   { time: '12:30', detected: 100, recovered: 56, rate: 56.0 },
 ];
 
-export default function InteractiveRecoveryChart({ chartData }) {
+export default function InteractiveRecoveryChart({ chartData, metrics }) {
   const [selectedMetric, setSelectedMetric] = useState('all');
   const activeData = chartData && chartData.length > 0 ? chartData : defaultData;
+
+  const recoveredTx = metrics?.recovery_metrics?.payments_recovered ?? 56;
+  const ratePercent = (metrics?.recovery_metrics?.recovery_rate_percent ?? 56.0).toFixed(1);
+  const avgSpeed = metrics?.quality_metrics?.avg_recovery_time_minutes ?? 2.3;
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
@@ -162,9 +166,9 @@ export default function InteractiveRecoveryChart({ chartData }) {
 
       {/* Dynamic Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-slate-200">
-        <InfoCard label="Peak Recovery" value="56" unit="transactions saved" icon={<Activity className="w-4 h-4 text-[#FF6A00]" />} />
-        <InfoCard label="Average Recovery Rate" value="56.0%" unit="target benchmark >45%" icon={<TrendingUp className="w-4 h-4 text-[#FF6A00]" />} />
-        <InfoCard label="Avg Resolution Speed" value="2.3 min" unit="sub-3min bounded speed" icon={<Zap className="w-4 h-4 text-[#FF6A00]" />} />
+        <InfoCard label="Peak Recovery" value={recoveredTx} unit="transactions saved" icon={<Activity className="w-4 h-4 text-[#FF6A00]" />} />
+        <InfoCard label="Average Recovery Rate" value={`${ratePercent}%`} unit="target benchmark >45%" icon={<TrendingUp className="w-4 h-4 text-[#FF6A00]" />} />
+        <InfoCard label="Avg Resolution Speed" value={`${avgSpeed} min`} unit="sub-3min bounded speed" icon={<Zap className="w-4 h-4 text-[#FF6A00]" />} />
       </div>
     </motion.div>
   );

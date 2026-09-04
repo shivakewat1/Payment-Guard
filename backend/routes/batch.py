@@ -36,9 +36,11 @@ def run_batch_pipeline(
     if request.limit:
         failures = failures[:request.limit]
 
+    total_amount_at_risk = sum(f.amount for f in failures)
     processed_count = 0
     recovered_count = 0
     recovered_amount = 0.0
+    recovered_tx_ids = set()
 
     for f in failures:
         try:
@@ -52,14 +54,28 @@ def run_batch_pipeline(
             exec_res = executor.execute_intervention(db, interv["intervention_id"])
 
             processed_count += 1
-            if exec_res.get("status") == "success":
+            if exec_res.get("status") == "success" and f.tx_id not in recovered_tx_ids:
+                recovered_tx_ids.add(f.tx_id)
                 recovered_count += 1
-                recovered_amount += exec_res.get("money_recovered", 0.0)
+                recovered_amount += f.amount
 
         except Exception as err:
             logger.error(f"Error processing transaction {f.tx_id} in batch: {err}")
 
+    # Sanity check assertions
+    if recovered_amount > total_amount_at_risk and total_amount_at_risk > 0:
+        logger.warning(
+            f"Sanity Violation Warning in Batch: recovered_amount (₹{recovered_amount:,.2f}) > total_amount_at_risk (₹{total_amount_at_risk:,.2f}). Clamping to total_amount_at_risk."
+        )
+        recovered_amount = total_amount_at_risk
+
     recovery_rate = round((recovered_count / processed_count * 100.0), 1) if processed_count > 0 else 0.0
+
+    if recovery_rate > 100.0:
+        logger.warning(f"Sanity Violation Warning in Batch: recovery_rate ({recovery_rate}%) > 100%. Clamping to 100.0%.")
+        recovery_rate = 100.0
+    elif recovery_rate < 0.0:
+        recovery_rate = 0.0
 
     logger.info(f"Batch {batch_id} finished. Processed: {processed_count}, Recovered: {recovered_count} (Rs. {recovered_amount:,.2f}, {recovery_rate}%)")
 

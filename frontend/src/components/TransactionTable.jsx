@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Search, Download, CheckSquare, Square, Zap, Brain, Play, FileText, 
-  RefreshCw, ChevronRight, ShieldAlert, Sparkles, Filter
+  RefreshCw, ChevronRight, ShieldAlert, Sparkles, Filter, CheckCircle2
 } from 'lucide-react';
 
 export default function TransactionTable({
@@ -306,14 +306,24 @@ export default function TransactionTable({
                         </button>
 
                         {/* Recover */}
-                        <button
-                          onClick={() => onExecute && onExecute(tx.tx_id)}
-                          title="Step 4: Execute Recovery"
-                          className="px-3 py-1.5 rounded-xl bg-[#151515] hover:bg-black text-white font-mono font-extrabold text-xs shadow-sm flex items-center gap-1 transition-all"
-                        >
-                          <Play className="w-3 h-3 text-[#FF6A00] fill-current" />
-                          <span>SAVE</span>
-                        </button>
+                        {tx.status === 'recovered' ? (
+                          <span
+                            title="Transaction successfully recovered"
+                            className="px-3 py-1.5 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 font-mono font-bold text-xs shadow-xs flex items-center gap-1 cursor-default"
+                          >
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                            <span>RECOVERED</span>
+                          </span>
+                        ) : (
+                          <button
+                            onClick={() => onExecute && onExecute(tx.tx_id)}
+                            title="Step 4: Execute Recovery"
+                            className="px-3 py-1.5 rounded-xl bg-[#151515] hover:bg-black text-white font-mono font-extrabold text-xs shadow-sm flex items-center gap-1 transition-all"
+                          >
+                            <Play className="w-3 h-3 text-[#FF6A00] fill-current" />
+                            <span>RECOVER</span>
+                          </button>
+                        )}
 
                         {/* Audit */}
                         <button

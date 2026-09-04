@@ -72,9 +72,11 @@ async def websocket_recovery(websocket: WebSocket):
                         "message": f"Starting recovery pipeline for {total} transactions..."
                     })
                     
+                    total_at_risk = sum(f.amount for f in failures)
                     completed = 0
                     total_recovered_count = 0
                     total_amount = 0.0
+                    recovered_tx_ids = set()
                     
                     # Process each failure with agentic recovery loop
                     for idx, failure in enumerate(failures):
@@ -89,13 +91,16 @@ async def websocket_recovery(websocket: WebSocket):
                             result = executor.execute_intervention(db, intervention["intervention_id"])
                             
                             # Track results
-                            if result.get("status") == "success":
+                            if result.get("status") == "success" and failure.tx_id not in recovered_tx_ids:
+                                recovered_tx_ids.add(failure.tx_id)
                                 total_recovered_count += 1
-                                money = result.get("money_recovered", 0.0)
-                                total_amount += money
+                                total_amount += failure.amount
                             
                             completed += 1
-                            rate = (total_recovered_count / completed) * 100.0 if completed > 0 else 0.0
+                            if total_amount > total_at_risk and total_at_risk > 0:
+                                logger.warning(f"Sanity Check Warning in WS: total_amount ({total_amount}) > total_at_risk ({total_at_risk}). Clamping.")
+                                total_amount = total_at_risk
+                            rate = min(100.0, max(0.0, (total_recovered_count / completed) * 100.0)) if completed > 0 else 0.0
                             
                             # Send progress update
                             await manager.broadcast({
@@ -116,8 +121,10 @@ async def websocket_recovery(websocket: WebSocket):
                             completed += 1
                             continue
                     
-                    final_rate = (total_recovered_count / total) * 100.0 if total > 0 else 0.0
-                    
+                    final_rate = min(100.0, max(0.0, (total_recovered_count / total) * 100.0)) if total > 0 else 0.0
+                    if total_amount > total_at_risk and total_at_risk > 0:
+                        total_amount = total_at_risk
+
                     # Send completion message
                     await manager.broadcast({
                         "type": "complete",

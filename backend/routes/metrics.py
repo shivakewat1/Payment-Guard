@@ -40,9 +40,43 @@ def get_metrics_report(
     successful_executions = [a for a in audit_logs if a.status == "success"]
     failed_executions = [a for a in audit_logs if a.status == "failed"]
     
-    payments_recovered = len(successful_executions)
-    amount_recovered = sum(a.money_recovered for a in successful_executions)
-    recovery_rate = round((payments_recovered / interventions_count * 100.0), 1) if interventions_count > 0 else 0.0
+    # Deduplicate recovered failures using Failure status or unique AuditLog failure_ids
+    recovered_failures = [f for f in failures if f.status in ("recovered", "executed")]
+    if not recovered_failures and successful_executions:
+        # Fallback to unique successful failure_ids from audit logs
+        recovered_ids = set(a.failure_id for a in successful_executions if a.failure_id)
+        recovered_failures = [f for f in failures if f.tx_id in recovered_ids]
+
+    payments_recovered = min(len(recovered_failures), total_failures)
+    amount_recovered = sum(f.amount for f in recovered_failures)
+
+    # Accurate recovery rate calculated relative to total failures
+    recovery_rate = round((payments_recovered / total_failures * 100.0), 1) if total_failures > 0 else 0.0
+
+    # SANITY ASSERTIONS & CHECKS: Prevent mathematical impossibilities
+    import logging
+    logger = logging.getLogger(__name__)
+
+    if amount_recovered > total_amount_at_risk and total_amount_at_risk > 0:
+        logger.warning(
+            f"Sanity Check Warning: amount_recovered (₹{amount_recovered:,.2f}) > total_amount_at_risk (₹{total_amount_at_risk:,.2f}). Clamping to total_amount_at_risk."
+        )
+        amount_recovered = total_amount_at_risk
+    elif amount_recovered < 0.0:
+        logger.warning(f"Sanity Check Warning: amount_recovered ({amount_recovered}) < 0. Clamping to 0.0.")
+        amount_recovered = 0.0
+
+    if recovery_rate > 100.0:
+        logger.warning(
+            f"Sanity Check Warning: recovery_rate ({recovery_rate}%) > 100%. Clamping to 100.0%."
+        )
+        recovery_rate = 100.0
+    elif recovery_rate < 0.0:
+        logger.warning(
+            f"Sanity Check Warning: recovery_rate ({recovery_rate}%) < 0%. Clamping to 0.0%."
+        )
+        recovery_rate = 0.0
+
     avg_recovery_per_tx = round(amount_recovered / payments_recovered, 2) if payments_recovered > 0 else 0.0
 
     # Quality stats
@@ -83,8 +117,8 @@ def get_metrics_report(
             avg_recovery_per_tx=avg_recovery_per_tx
         ),
         quality_metrics=QualityMetrics(
-            interventions_success=len(successful_executions),
-            interventions_failed=len(failed_executions),
+            interventions_success=payments_recovered,
+            interventions_failed=max(0, total_failures - payments_recovered),
             success_rate=recovery_rate,
             avg_recovery_time_minutes=avg_recovery_time_min if avg_recovery_time_min > 0 else 2.3
         ),
