@@ -5,6 +5,7 @@
 **Razorpay AI Buildathon — Track 03: AI Revenue Recovery**
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-shivakewat1%2FPayment--Guard-181717?style=for-the-badge&logo=github)](https://github.com/shivakewat1/Payment-Guard)
+[![YouTube Demo](https://img.shields.io/badge/YouTube-Demo_Video-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/P5hZzT8VOTg)
 [![Track](https://img.shields.io/badge/Track_03-AI_Revenue_Recovery-0284c7?style=for-the-badge&logo=razorpay)](https://github.com/shivakewat1/Payment-Guard)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/React_18-Editorial_Light-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
@@ -18,11 +19,19 @@
 
 > **"Indian merchants lose ₹ crores every single day to payment failures — 60% of which are abandoned forever. Manual recovery is slow, expensive, and support-heavy. PaymentGuard turns failed transactions into recovered revenue through real-time switch ingestion, Claude 3.5 Sonnet diagnostic reasoning, bounded multi-channel interventions, Hinglish voice concierges, and 100% immutable audit logging."**
 
+<br/>
+
+### 🎥 Watch Live Demo Video Walkthrough
+[![PaymentGuard Video Demo](https://img.youtube.com/vi/P5hZzT8VOTg/maxresdefault.jpg)](https://youtu.be/P5hZzT8VOTg)
+
+👉 **[Click Here to Watch the Demo Video on YouTube (https://youtu.be/P5hZzT8VOTg)](https://youtu.be/P5hZzT8VOTg)**
+
 </div>
 
 ---
 
 ## 📑 Table of Contents
+- [🎥 Video Demo Walkthrough](#-video-demo-walkthrough)
 - [Executive Overview](#-executive-overview)
 - [The 4-Step Autonomous Workflow](#-the-4-step-autonomous-workflow)
 - [💰 Revenue Impact & ROI Engine](#-revenue-impact--roi-engine)
@@ -36,9 +45,19 @@
 - [📂 Project Directory Structure](#-project-directory-structure)
 - [🔌 REST API & WebSocket Reference](#-rest-api--websocket-reference)
 - [🧪 Automated Test Suite (16/16 Passing)](#-automated-test-suite-1616-passing)
-- [🎬 5-Minute Video Walkthrough Script](#-5-minute-video-walkthrough-script)
+- [🎬 Video Walkthrough & Presentation](#-video-walkthrough--presentation)
 - [🚀 Quickstart & Local Installation](#-quickstart--local-installation)
 - [💼 Why It Matters for Razorpay](#-why-it-matters-for-razorpay)
+
+---
+
+## 🎥 Video Demo Walkthrough
+
+[![Watch Demo on YouTube](https://img.shields.io/badge/YouTube-Watch%20Demo%20Video-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/P5hZzT8VOTg)
+
+A complete demonstration of PaymentGuard in action:
+- **Live Demo Link**: [https://youtu.be/P5hZzT8VOTg](https://youtu.be/P5hZzT8VOTg)
+- **Topics Covered**: End-to-end autonomous 4-step pipeline (Detect $\to$ Diagnose $\to$ Intervene $\to$ Execute), Batch recovery of 100 failed transactions (₹25.7L at risk), Graceful failure retry demonstration (`tx_1001`), Hinglish Voice Concierge interactive test, and the dynamic ROI / Revenue impact simulator.
 
 ---
 
@@ -458,9 +477,11 @@ tests/test_revenue.py::test_revenue_endpoints PASSED                     [100%]
 
 ---
 
-## 🎬 5-Minute Video Walkthrough Script
+## 🎬 Video Walkthrough & Presentation
 
-Use this exact timing and dialogue outline when recording the submission video:
+> 📺 **Watch Full Video Submission on YouTube:** **[https://youtu.be/P5hZzT8VOTg](https://youtu.be/P5hZzT8VOTg)**
+
+Timing and dialogue structure followed in the presentation:
 
 | Timestamp | Segment | Dialogue & Action Guide |
 | :--- | :--- | :--- |
